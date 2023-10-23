@@ -1,0 +1,39 @@
+name: Deployment
+
+on:
+  workflow_call
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up JDK
+        uses: actions/setup-java@v1
+        with:
+          java-version: '17'
+      - name: Build with Maven
+        run: mvn -B package -DskipTests --file pom.xml
+      - name: Upload JAR
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: target/vibrations-api-0.0.1-SNAPSHOT
+
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download JAR
+        uses: einaregilsson/beanstalk-deploy@v13
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          use_existing_application_version_if_available: false
+          application_name: ${{ vars.APPLICATION_NAME }}
+          environment_name: ${{ vars.ENVIRONMENT_NAME }}
+          version_label: ${{ github.SHA }}
+          region: us-east-2
+          deployment-package: vibrations-api-0.0.1-SNAPSHOT
