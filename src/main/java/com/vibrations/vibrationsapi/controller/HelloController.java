@@ -12,6 +12,6 @@ public class HelloController {
 
     @GetMapping("/")
     public String index() {
-        return "S'all Good, Man";
+        return "S'all Good, Man (Better Call Saul!)";
     }
 }
