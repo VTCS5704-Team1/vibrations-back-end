@@ -27,6 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download JAR
+        uses: actions/download-artifacts@v2
+        with:
+          name: artifact
+      - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v13
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
