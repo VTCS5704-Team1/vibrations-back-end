@@ -35,5 +35,5 @@ jobs:
           application_name: ${{ vars.application_name }}
           environment_name: ${{ vars.environment_name }}
           version_label: ${{ github.SHA }}
-          region: us-east-1
+          region: us-east-2
           deployment-package: vibrations-api-0.0.1-SNAPSHOT
