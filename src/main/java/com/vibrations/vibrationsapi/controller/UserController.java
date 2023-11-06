@@ -4,6 +4,8 @@ package com.vibrations.vibrationsapi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
+import com.vibrations.vibrationsapi.model.User;
+import com.vibrations.vibrationsapi.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
