@@ -1,6 +1,7 @@
 package com.vibrations.vibrationsapi.controller;
 
 
+import com.vibrations.vibrationsapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
@@ -11,8 +12,10 @@ import com.vibrations.vibrationsapi.service.UserService;
 @RequestMapping("/api/users")
 public class UserController {
 
+
     @Autowired
     private UserService userService;
+
 
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {

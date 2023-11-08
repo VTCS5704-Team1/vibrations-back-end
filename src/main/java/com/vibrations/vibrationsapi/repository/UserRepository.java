@@ -7,4 +7,5 @@ import com.vibrations.vibrationsapi.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     // You can define custom query methods here if needed.
+    User findByEmail(String email);
 }
