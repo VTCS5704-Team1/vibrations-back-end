@@ -1,0 +1,13 @@
+
+INSERT INTO users (first_name, last_name, profile_picture_link, email, phone_number, password, fav_song, fav_artist, fav_genre, score, latitude, longitude)
+VALUES
+    ('John', 'Doe', 'profile1.jpg', 'john.doe@example.com', 1234567890, 'password1', '{"Imagine", "Bohemian Rhapsody", "Billie Jean"}', '{"The Beatles", "Queen", "Michael Jackson"}', '{"Pop", "Rock", "R&B"}', 4.5, 38.8951100, -77.0363700),
+    ('Jane', 'Smith', 'profile2.jpg', 'jane.smith@example.com', 9876543210, 'password2', '{"Hotel California", "Let It Be", "Thriller"}', '{"Eagles", "The Beatles", "Michael Jackson"}', '{"Rock", "Pop", "R&B"}', 3.7, 37.2719000, -76.7075000),
+    ('Alice', 'Johnson', 'profile3.jpg', 'alice.johnson@example.com', 5555555555, 'password3', '{"Rolling in the Deep", "Stairway to Heaven", "Shape of You"}', '{"Adele", "Led Zeppelin", "Ed Sheeran"}', '{"Pop", "Rock", "Pop"}', 4.1, 36.850769, -75.977639),
+    ('Bob', 'Williams', 'profile4.jpg', 'bob.williams@example.com', 1111111111, 'password4', '{"Bohemian Rhapsody", "Yellow Submarine", "Uptown Funk"}', '{"Queen", "The Beatles", "Bruno Mars"}', '{"Rock", "Pop", "Funk"}', 4.9, 37.532600, -77.428742),
+    ('Ella', 'Brown', 'profile5.jpg', 'ella.brown@example.com', 2222222222, 'password5', '{"Shape of You", "Black Dog", "Hotline Bling"}', '{"Ed Sheeran", "Led Zeppelin", "Drake"}', '{"Pop", "Rock", "Rap"}', 4.3, 38.804836, -77.046921),
+    ('David', 'Lee', 'profile6.jpg', 'david.lee@example.com', 3333333333, 'password6', '{"Rolling in the Deep", "Bohemian Rhapsody", "Stairway to Heaven"}', '{"Adele", "Queen", "Led Zeppelin"}', '{"Pop", "Rock", "Rock"}', 4.2, 38.029306, -78.476677),
+    ('Emma', 'Martinez', 'profile7.jpg', 'emma.martinez@example.com', 4444444444, 'password7', '{"Billie Jean", "Yellow Submarine", "Hotline Bling"}', '{"Michael Jackson", "The Beatles", "Drake"}', '{"R&B", "Pop", "Rap"}', 4.6, 39.290385, -76.612189),
+    ('William', 'Johnson', 'profile8.jpg', 'william.johnson@example.com', 6666666666, 'password8', '{"Hotel California", "Let It Be", "Uptown Funk"}', '{"Eagles", "The Beatles", "Bruno Mars"}', '{"Rock", "Pop", "Funk"}', 4.8, 37.431573, -78.656894),
+    ('Olivia', 'Garcia', 'profile9.jpg', 'olivia.garcia@example.com', 7777777777, 'password9', '{"Imagine", "Black Dog", "Thriller"}', '{"The Beatles", "Led Zeppelin", "Michael Jackson"}', '{"Pop", "Rock", "R&B"}', 4.7, 36.852893, -75.978857),
+    ('James', 'Smith', 'profile10.jpg', 'james.smith@example.com', 9999999999, 'password10', '{"Rolling in the Deep", "Yellow Submarine", "Hotline Bling"}', '{"Adele", "The Beatles", "Drake"}', '{"Pop", "Rock", "Rap"}', 4.4, 37.540725, -77.436048);
