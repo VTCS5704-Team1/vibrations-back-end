@@ -1,16 +1,20 @@
 package com.vibrations.vibrationsapi.model;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
 import java.util.List;
 
+//@Data
 @Entity
 @Data
-@NoArgsConstructor
+@Table(name = "users", schema = "vibrations_backend")
 public class User {
 
+    //@ManyToMany
+    //private List<User> matches;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -39,8 +43,16 @@ public class User {
     private double latitude;
     @Column(name = "longitude")
     private double longitude;
-    //@ManyToMany
-    //private List<User> matches;
+
+
+
+//    public List<User> getMatches() {
+//        return matches;
+//    }
+//
+//    public void setMatches(List<User> matches) {
+//        this.matches = matches;
+//    }
 
 
 
