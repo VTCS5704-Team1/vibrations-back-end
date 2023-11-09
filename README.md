@@ -14,9 +14,9 @@ Project for CS5707 - Software Engineering (Fall 2023)
 * Description: API for Vibrations backend project
 * Package Name: com.vibrations.vibrations-api
 
-* Bugs and todo:
-loggging
-remove user id  in POST req
+# Bugs and todo:
+*logging
+*remove user id  in POST req
 
 
 
