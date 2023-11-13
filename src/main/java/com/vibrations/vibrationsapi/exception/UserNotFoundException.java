@@ -1,4 +1,4 @@
-package com.vibrations.vibrationsapi.exceptions;
+package com.vibrations.vibrationsapi.exception;
 
 public class UserNotFoundException extends RuntimeException {
 
