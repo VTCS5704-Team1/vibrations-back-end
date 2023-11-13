@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Changed message">
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added global exception handling controller">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,14 +52,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Backened-setup",
-    "last_opened_file_path": "/Users/davidclark/dev/projects/vibrations-back-end"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;security&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/davidclark/dev/projects/vibrations-back-end&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="vibrations-back-end" />
@@ -138,8 +140,67 @@
       <option name="project" value="LOCAL" />
       <updated>1698101501368</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Created Security Configuration Classes">
+      <option name="closed" value="true" />
+      <created>1699911402061</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699911402061</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Created DTOs for SignUp">
+      <option name="closed" value="true" />
+      <created>1699911419578</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699911419578</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Misc Security Changes">
+      <option name="closed" value="true" />
+      <created>1699911431053</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699911431053</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Signin DTOs">
+      <option name="closed" value="true" />
+      <created>1699911961758</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699911961758</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Renamed 'exceptions' package to 'exception'">
+      <option name="closed" value="true" />
+      <created>1699912384818</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699912384818</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added global exception handling controller">
+      <option name="closed" value="true" />
+      <created>1699912398056</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699912398056</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Configured Spring Boot for AWS" />
@@ -149,6 +210,12 @@
     <MESSAGE value="Fix to deploy yml" />
     <MESSAGE value="Added verify yml" />
     <MESSAGE value="Changed message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed message" />
+    <MESSAGE value="Created Security Configuration Classes" />
+    <MESSAGE value="Created DTOs for SignUp" />
+    <MESSAGE value="Misc Security Changes" />
+    <MESSAGE value="Signin DTOs" />
+    <MESSAGE value="Renamed 'exceptions' package to 'exception'" />
+    <MESSAGE value="Added global exception handling controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added global exception handling controller" />
   </component>
 </project>
