@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Changed message">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/SignUpRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/CognitoConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Misc Security Changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/SignInRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/SignInResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +137,31 @@
       <option name="project" value="LOCAL" />
       <updated>1698101501368</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Created Security Configuration Classes">
+      <option name="closed" value="true" />
+      <created>1699911402061</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699911402061</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Created DTOs for SignUp">
+      <option name="closed" value="true" />
+      <created>1699911419578</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699911419578</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Misc Security Changes">
+      <option name="closed" value="true" />
+      <created>1699911431053</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699911431053</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -153,6 +172,9 @@
     <MESSAGE value="Fix to deploy yml" />
     <MESSAGE value="Added verify yml" />
     <MESSAGE value="Changed message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed message" />
+    <MESSAGE value="Created Security Configuration Classes" />
+    <MESSAGE value="Created DTOs for SignUp" />
+    <MESSAGE value="Misc Security Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Misc Security Changes" />
   </component>
 </project>
