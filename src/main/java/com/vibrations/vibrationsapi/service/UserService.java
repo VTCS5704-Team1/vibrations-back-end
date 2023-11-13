@@ -1,7 +1,7 @@
 package com.vibrations.vibrationsapi.service;
 
-import com.vibrations.vibrationsapi.exceptions.UserAlreadyExistsException;
-import com.vibrations.vibrationsapi.exceptions.UserNotFoundException;
+import com.vibrations.vibrationsapi.exception.UserAlreadyExistsException;
+import com.vibrations.vibrationsapi.exception.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.vibrations.vibrationsapi.repository.UserRepository;

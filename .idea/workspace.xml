@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Misc Security Changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/SignInRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/SignInResponseDto.java" afterDir="false" />
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Signin DTOs">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/GlobalExceptionHandlerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/exception/ValidationException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/exception/model/Error.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/exceptions/UserAlreadyExistsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/exception/UserAlreadyExistsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/exceptions/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/exception/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699911431053</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Signin DTOs">
+      <option name="closed" value="true" />
+      <created>1699911961758</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699911961758</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -175,6 +187,7 @@
     <MESSAGE value="Created Security Configuration Classes" />
     <MESSAGE value="Created DTOs for SignUp" />
     <MESSAGE value="Misc Security Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Misc Security Changes" />
+    <MESSAGE value="Signin DTOs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Signin DTOs" />
   </component>
 </project>
