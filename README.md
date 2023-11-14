@@ -15,8 +15,8 @@ Project for CS5707 - Software Engineering (Fall 2023)
 * Package Name: com.vibrations.vibrations-api
 
 # Bugs and todo:
-*logging
-*remove user id  in POST req
-
+* Logging
+* Unit Tests
+* Synchronize AWS Cognito SignUp/Login endpoints with PostgreSql database
 
 
