@@ -18,5 +18,6 @@ Project for CS5707 - Software Engineering (Fall 2023)
 * Logging
 * Unit Tests
 * Synchronize AWS Cognito SignUp/Login endpoints with PostgreSql database
+* Move AWS Secrets to GH secrets
 
 
