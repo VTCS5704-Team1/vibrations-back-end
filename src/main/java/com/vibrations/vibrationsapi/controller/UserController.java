@@ -31,7 +31,7 @@ public class UserController {
         return ResponseEntity.ok(userService.signUp(signUpRequest));
     }
 
-    @PostMapping(path="/signin", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(path="/login", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<SignInResponseDto> signIn(@RequestBody SignInRequestDto signInRequest) {
         return ResponseEntity.ok(userService.signIn(signInRequest));
     }
