@@ -35,12 +35,11 @@ public class UserServiceImpl implements UserService {
             // Get Other Attributes
             AttributeType birthdateAttr = new AttributeType().withName("birthdate").withValue(signUpRequest.getBirthdate());
             AttributeType genderAttr = new AttributeType().withName("gender").withValue(signUpRequest.getGender());
-            AttributeType pictureAttr = new AttributeType().withName("picture").withValue(signUpRequest.getPicture());
 
             // Create user request to Cognito
             AdminCreateUserRequest userRequest = new AdminCreateUserRequest().withUserPoolId(userPoolId)
                     .withUsername(signUpRequest.getEmail()).withTemporaryPassword(signUpRequest.getPassword())
-                    .withUserAttributes(emailAttr, emailVerifiedAttr, birthdateAttr, genderAttr, pictureAttr)
+                    .withUserAttributes(emailAttr, emailVerifiedAttr, birthdateAttr, genderAttr)
                     .withMessageAction(MessageActionType.SUPPRESS)
                     .withDesiredDeliveryMediums(DeliveryMediumType.EMAIL);
 
