@@ -20,6 +20,9 @@ import java.util.Arrays;
 //  (Aside from the password)
 @RestController
 @RequestMapping("/api/users")
+// DEV's NOTE: This is configured for LOCAL DEVELOPMENT
+// When deploying to Cloud, this will need to be updated
+@CrossOrigin(origins="http://localhost:3000")
 public class UserController {
 
     @Autowired
