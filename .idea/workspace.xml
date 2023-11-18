@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Updated security settings">
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Changed Cognito Userpool">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/SignUpRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/SignUpRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699920422858</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Changed Cognito Userpool">
+      <option name="closed" value="true" />
+      <created>1700342581325</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700342581325</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -224,6 +230,7 @@
     <MESSAGE value="Renamed 'exceptions' package to 'exception'" />
     <MESSAGE value="Added global exception handling controller" />
     <MESSAGE value="Updated security settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated security settings" />
+    <MESSAGE value="Changed Cognito Userpool" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Cognito Userpool" />
   </component>
 </project>

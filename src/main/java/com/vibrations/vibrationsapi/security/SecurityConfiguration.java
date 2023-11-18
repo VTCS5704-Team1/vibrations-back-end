@@ -16,8 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
 public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors(cors -> cors.disable()).csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests((authz) -> authz.requestMatchers("/api/users/register", "/api/users/login")
+        http.csrf(csrf -> csrf.disable())
+                .authorizeHttpRequests((authz) -> authz.requestMatchers("/api/users/register", "/api/users/login", "hello")
                         .permitAll().anyRequest().authenticated())
                 .sessionManagement((sessionManagement) -> {
                     sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
