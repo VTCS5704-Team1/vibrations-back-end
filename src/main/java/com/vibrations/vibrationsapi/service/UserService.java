@@ -1,6 +1,8 @@
 package com.vibrations.vibrationsapi.service;
 
+import com.amazonaws.services.cognitoidp.model.GlobalSignOutResult;
 import com.vibrations.vibrationsapi.dto.*;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 
 public interface UserService {
@@ -17,4 +19,11 @@ public interface UserService {
      * @return Response to sign in request
      */
     SignInResponseDto signIn(SignInRequestDto signInRequest);
+
+    /**
+     * Method for signing out in AWS Cognito
+     * Should also removing the auth token from the header
+     * @param signOutRequest -- Request for signing out
+     */
+    GlobalSignOutResult signOut(HttpServletRequest signOutRequest);
 }

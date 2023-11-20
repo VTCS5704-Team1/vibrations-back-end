@@ -8,6 +8,8 @@ import com.vibrations.vibrationsapi.dto.SignUpRequestDto;
 import com.vibrations.vibrationsapi.dto.SignUpResponseDto;
 import com.vibrations.vibrationsapi.exception.ValidationException;
 import com.vibrations.vibrationsapi.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -127,7 +129,34 @@ public class UserServiceImpl implements UserService {
         } catch (Exception e) {
             throw new ValidationException(e.getMessage());
         }
-        cognitoClient.shutdown();
+        // cognitoClient.shutdown();
         return signInResponse;
+    }
+
+    @Override
+    public GlobalSignOutResult signOut(HttpServletRequest signOutRequest) {
+        String accessToken = getAccessToken(signOutRequest);
+        if (accessToken == null) {
+            throw new ValidationException("No access token found!");
+        }
+
+        try {
+            GlobalSignOutRequest request = new GlobalSignOutRequest();
+            request.setAccessToken(accessToken);
+
+            return cognitoClient.globalSignOut(request);
+
+        } catch (Exception e) {
+            throw new ValidationException("Signout failed! " + e.getMessage());
+        }
+    }
+
+
+    private String getAccessToken(HttpServletRequest request) {
+        String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
+        if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            return authorizationHeader.substring(7);
+        }
+        return null;
     }
 }
