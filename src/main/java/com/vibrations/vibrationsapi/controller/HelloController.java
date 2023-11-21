@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
  * Should be deleted when we have actual Models and Controllers
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 public class HelloController {
 
     @GetMapping("/hello")

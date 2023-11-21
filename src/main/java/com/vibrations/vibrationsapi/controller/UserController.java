@@ -16,9 +16,6 @@ import java.util.Arrays;
 //  (Aside from the password)
 @RestController
 @RequestMapping("/api/users")
-// DEV's NOTE: This is configured for LOCAL DEVELOPMENT
-// When deploying to Cloud, this will need to be updated
-@CrossOrigin(origins="http://localhost:3000")
 public class UserController {
 
     @Autowired
@@ -35,12 +32,6 @@ public class UserController {
         return ResponseEntity.ok(userService.signIn(signInRequest));
     }
 
-    /*
-     * TODO: Cognito Endpoints for:
-     *  Delete Account
-     */
-
-    @PostMapping(path="/change/password", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> changePassword(@RequestBody ChangePasswordDto changePasswordRequest) {
         return ResponseEntity.ok(userService.changePassword(changePasswordRequest));
     }
@@ -58,8 +49,6 @@ public class UserController {
 
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest request) {
-        // TODO: Remove Authorization Token from Header
-        // TODO: Logout using Cognito features
         return ResponseEntity.ok(userService.signOut(request));
     }
 
