@@ -1,16 +1,12 @@
 package com.vibrations.vibrationsapi.controller;
 
 
-import com.amazonaws.Response;
-import com.vibrations.vibrationsapi.dto.SignInRequestDto;
-import com.vibrations.vibrationsapi.dto.SignInResponseDto;
-import com.vibrations.vibrationsapi.dto.SignUpRequestDto;
-import com.vibrations.vibrationsapi.dto.SignUpResponseDto;
+import com.vibrations.vibrationsapi.dto.*;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
-import com.vibrations.vibrationsapi.model.User;
 import com.vibrations.vibrationsapi.service.UserService;
 
 import java.util.Arrays;
@@ -39,11 +35,40 @@ public class UserController {
         return ResponseEntity.ok(userService.signIn(signInRequest));
     }
 
+    /*
+     * TODO: Cognito Endpoints for:
+     *  Delete Account
+     */
+
+    @PostMapping(path="/change/password", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> changePassword(@RequestBody ChangePasswordDto changePasswordRequest) {
+        return ResponseEntity.ok(userService.changePassword(changePasswordRequest));
+    }
+
+    @PostMapping(path="/delete", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> deleteAccount(@RequestBody DeleteAccountDto deleteAccountRequest) {
+        return ResponseEntity.ok(userService.deleteUser(deleteAccountRequest));
+    }
+
     // Temp GET method for testing endpoints only accessible via Authentication
     @GetMapping(path="/data")
-    public ResponseEntity<?> data() {
-        return ResponseEntity.ok(Arrays.asList("S'all Good, Man!"));
+    public ResponseEntity<String> data() {
+        return ResponseEntity.ok("S'all Good, Man!");
     }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletRequest request) {
+        // TODO: Remove Authorization Token from Header
+        // TODO: Logout using Cognito features
+        return ResponseEntity.ok(userService.signOut(request));
+    }
+
+    @GetMapping("/logout/success")
+    public ResponseEntity<?> logoutSuccess() {
+        return ResponseEntity.ok(Arrays.asList("Logged out Successfully!"));
+    }
+
+
 
     /*@GetMapping("/{userId}")
     public ResponseEntity<User> getUserProfile(@PathVariable Long userId) {
