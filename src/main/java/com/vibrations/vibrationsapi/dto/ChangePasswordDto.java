@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ChangePasswordDto {
-    String email;
-    String password;
+    private String email;
+    private String oldPassword;
+    private String newPassword;
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -150,11 +151,28 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public AdminSetUserPasswordResult changePassword(ChangePasswordDto changePasswordRequest) {
+
+        // First, ensure that user entered proper credentials:
+        final Map<String, String> authParams = new HashMap<>();
+        authParams.put("USERNAME", changePasswordRequest.getEmail());
+        authParams.put("PASSWORD", changePasswordRequest.getOldPassword());
+
+        AdminInitiateAuthRequest authRequest = new AdminInitiateAuthRequest()
+                .withAuthFlow(AuthFlowType.ADMIN_NO_SRP_AUTH)
+                .withClientId(clientId)
+                .withUserPoolId(userPoolId)
+                .withAuthParameters(authParams);
+        try {
+            AdminInitiateAuthResult authResult = cognitoClient.adminInitiateAuth(authRequest);
+        } catch (Exception e) {
+            throw new ValidationException(e.getMessage());
+        }
+
         try {
             AdminSetUserPasswordRequest request = new AdminSetUserPasswordRequest()
                     .withUserPoolId(userPoolId)
                     .withUsername(changePasswordRequest.getEmail())
-                    .withPassword(changePasswordRequest.getPassword())
+                    .withPassword(changePasswordRequest.getNewPassword())
                     .withPermanent(true);
             return cognitoClient.adminSetUserPassword(request);
         } catch (Exception e) {
