@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added new feature: can change passwords in Cognito">
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added password validation to change password">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/ChangePasswordDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/ChangePasswordDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/DeleteAccountDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/DeleteAccountDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700525204808</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added password validation to change password">
+      <option name="closed" value="true" />
+      <created>1700534495652</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1700534495652</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,7 +276,8 @@
     <MESSAGE value="Added Logout support" />
     <MESSAGE value="Deleted outdated class" />
     <MESSAGE value="Added new feature: can change passwords in Cognito" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added new feature: can change passwords in Cognito" />
+    <MESSAGE value="Added password validation to change password" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added password validation to change password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

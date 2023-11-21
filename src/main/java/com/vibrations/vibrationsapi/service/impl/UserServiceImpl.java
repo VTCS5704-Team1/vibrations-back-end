@@ -163,11 +163,11 @@ public class UserServiceImpl implements UserService {
                 .withUserPoolId(userPoolId)
                 .withAuthParameters(authParams);
         try {
-            AdminInitiateAuthResult authResult = cognitoClient.adminInitiateAuth(authRequest);
+            cognitoClient.adminInitiateAuth(authRequest);
         } catch (Exception e) {
             throw new ValidationException(e.getMessage());
         }
-
+        // If authentication succeeded, then change the password
         try {
             AdminSetUserPasswordRequest request = new AdminSetUserPasswordRequest()
                     .withUserPoolId(userPoolId)
@@ -182,6 +182,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public AdminDeleteUserResult deleteUser(DeleteAccountDto deleteUserRequest) {
+        // First, ensure that user entered valid credentials:
+        final Map<String, String> authParams = new HashMap<>();
+        authParams.put("USERNAME", deleteUserRequest.getEmail());
+        authParams.put("PASSWORD", deleteUserRequest.getPassword());
+
+        AdminInitiateAuthRequest authRequest = new AdminInitiateAuthRequest()
+                .withAuthFlow(AuthFlowType.ADMIN_NO_SRP_AUTH)
+                .withClientId(clientId)
+                .withUserPoolId(userPoolId)
+                .withAuthParameters(authParams);
+        try {
+            cognitoClient.adminInitiateAuth(authRequest);
+        } catch (Exception e) {
+            throw new ValidationException(e.getMessage());
+        }
+        // If valid, delete account,
         try {
             AdminDeleteUserRequest request = new AdminDeleteUserRequest()
                     .withUserPoolId(userPoolId)
