@@ -32,6 +32,7 @@ public class UserController {
         return ResponseEntity.ok(userService.signIn(signInRequest));
     }
 
+    @PostMapping(path="/change/password", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> changePassword(@RequestBody ChangePasswordDto changePasswordRequest) {
         return ResponseEntity.ok(userService.changePassword(changePasswordRequest));
     }
