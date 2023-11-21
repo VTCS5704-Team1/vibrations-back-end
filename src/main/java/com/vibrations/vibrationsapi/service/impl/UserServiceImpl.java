@@ -162,6 +162,18 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    public AdminDeleteUserResult deleteUser(DeleteAccountDto deleteUserRequest) {
+        try {
+            AdminDeleteUserRequest request = new AdminDeleteUserRequest()
+                    .withUserPoolId(userPoolId)
+                    .withUsername(deleteUserRequest.getEmail());
+            return cognitoClient.adminDeleteUser(request);
+        } catch (Exception e){
+            throw new ValidationException(e.getMessage());
+        }
+    }
+
 
     private String getAccessToken(HttpServletRequest request) {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);

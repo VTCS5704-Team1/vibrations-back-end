@@ -1,5 +1,6 @@
 package com.vibrations.vibrationsapi.service;
 
+import com.amazonaws.services.cognitoidp.model.AdminDeleteUserResult;
 import com.amazonaws.services.cognitoidp.model.AdminSetUserPasswordResult;
 import com.amazonaws.services.cognitoidp.model.GlobalSignOutResult;
 import com.vibrations.vibrationsapi.dto.*;
@@ -30,8 +31,15 @@ public interface UserService {
 
     /**
      * Method for changing passwords in Cognito.
-     * @param changePasswordRequest -- New Password DTO
-     * @return AWS JSON Reponse to Change Password Requestx
+     * @param changePasswordRequest -- New Password DTO (and email)
+     * @return AWS JSON Response to Change Password Request
      */
     AdminSetUserPasswordResult changePassword(ChangePasswordDto changePasswordRequest);
+
+    /**
+     * Method for deleting an account in Cognito
+     * @param deleteUserRequest -- Email of using to be deleted
+     * @return AWS JSON Response to Delete User request
+     */
+    AdminDeleteUserResult deleteUser(DeleteAccountDto deleteUserRequest);
 }

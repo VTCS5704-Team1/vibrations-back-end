@@ -40,9 +40,14 @@ public class UserController {
      *  Delete Account
      */
 
-    @PostMapping(path="change/password", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(path="/change/password", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<?> changePassword(@RequestBody ChangePasswordDto changePasswordRequest) {
         return ResponseEntity.ok(userService.changePassword(changePasswordRequest));
+    }
+
+    @PostMapping(path="/delete", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> deleteAccount(@RequestBody DeleteAccountDto deleteAccountRequest) {
+        return ResponseEntity.ok(userService.deleteUser(deleteAccountRequest));
     }
 
     // Temp GET method for testing endpoints only accessible via Authentication
