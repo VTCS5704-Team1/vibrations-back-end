@@ -29,8 +29,6 @@ public class User {
     private String email;
     @Column(name = "phone_number")
     private Long phoneNumber;
-    @Column(name = "password")
-    private String password;
     @Column(name = "fav_song")
     private List<String> favSong;
     @Column(name = "fav_artist")
