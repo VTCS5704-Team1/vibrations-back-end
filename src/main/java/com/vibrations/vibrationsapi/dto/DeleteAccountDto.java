@@ -13,4 +13,5 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DeleteAccountDto {
     private String email;
+    private String password;
 }
