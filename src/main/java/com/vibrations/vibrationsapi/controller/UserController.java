@@ -38,8 +38,12 @@ public class UserController {
     /*
      * TODO: Cognito Endpoints for:
      *  Delete Account
-     *  Change Password
      */
+
+    @PostMapping(path="change/password", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<?> changePassword(@RequestBody ChangePasswordDto changePasswordRequest) {
+        return ResponseEntity.ok(userService.changePassword(changePasswordRequest));
+    }
 
     // Temp GET method for testing endpoints only accessible via Authentication
     @GetMapping(path="/data")

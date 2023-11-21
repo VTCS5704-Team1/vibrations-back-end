@@ -2,10 +2,7 @@ package com.vibrations.vibrationsapi.service.impl;
 
 import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
 import com.amazonaws.services.cognitoidp.model.*;
-import com.vibrations.vibrationsapi.dto.SignInRequestDto;
-import com.vibrations.vibrationsapi.dto.SignInResponseDto;
-import com.vibrations.vibrationsapi.dto.SignUpRequestDto;
-import com.vibrations.vibrationsapi.dto.SignUpResponseDto;
+import com.vibrations.vibrationsapi.dto.*;
 import com.vibrations.vibrationsapi.exception.ValidationException;
 import com.vibrations.vibrationsapi.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -147,7 +144,21 @@ public class UserServiceImpl implements UserService {
             return cognitoClient.globalSignOut(request);
 
         } catch (Exception e) {
-            throw new ValidationException("Signout failed! " + e.getMessage());
+            throw new ValidationException(e.getMessage());
+        }
+    }
+
+    @Override
+    public AdminSetUserPasswordResult changePassword(ChangePasswordDto changePasswordRequest) {
+        try {
+            AdminSetUserPasswordRequest request = new AdminSetUserPasswordRequest()
+                    .withUserPoolId(userPoolId)
+                    .withUsername(changePasswordRequest.getEmail())
+                    .withPassword(changePasswordRequest.getPassword())
+                    .withPermanent(true);
+            return cognitoClient.adminSetUserPassword(request);
+        } catch (Exception e) {
+            throw new ValidationException(e.getMessage());
         }
     }
 

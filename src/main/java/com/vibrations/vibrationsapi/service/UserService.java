@@ -1,5 +1,6 @@
 package com.vibrations.vibrationsapi.service;
 
+import com.amazonaws.services.cognitoidp.model.AdminSetUserPasswordResult;
 import com.amazonaws.services.cognitoidp.model.GlobalSignOutResult;
 import com.vibrations.vibrationsapi.dto.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,8 +23,15 @@ public interface UserService {
 
     /**
      * Method for signing out in AWS Cognito
-     * Should also removing the auth token from the header
      * @param signOutRequest -- Request for signing out
+     * @return AWS Response to Sign Out Request
      */
     GlobalSignOutResult signOut(HttpServletRequest signOutRequest);
+
+    /**
+     * Method for changing passwords in Cognito.
+     * @param changePasswordRequest -- New Password DTO
+     * @return AWS JSON Reponse to Change Password Requestx
+     */
+    AdminSetUserPasswordResult changePassword(ChangePasswordDto changePasswordRequest);
 }
