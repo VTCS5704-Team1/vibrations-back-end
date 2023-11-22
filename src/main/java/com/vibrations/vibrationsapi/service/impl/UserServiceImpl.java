@@ -4,6 +4,8 @@ import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
 import com.amazonaws.services.cognitoidp.model.*;
 import com.vibrations.vibrationsapi.dto.*;
 import com.vibrations.vibrationsapi.exception.ValidationException;
+import com.vibrations.vibrationsapi.model.ProfileImage;
+import com.vibrations.vibrationsapi.repository.ProfileImageRepository;
 import com.vibrations.vibrationsapi.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.BeanUtils;
@@ -13,7 +15,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.vibrations.vibrationsapi.repository.UserRepository;
 import com.vibrations.vibrationsapi.model.User;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -216,17 +220,27 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Autowired
+    ProfileImageRepository profileImageRepository;
     @Override
-    public RegisterResponseDto register(RegisterRequestDto registerRequest) {
+    public RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException {
         User user = new User();
-        BeanUtils.copyProperties(registerRequest, user);
 
-
+        user.setEmail(registerRequest.getEmail());
+        user.setGender(registerRequest.getGender());
+        user.setFirstName(registerRequest.getFirstName());
+        user.setLastName(registerRequest.getLastName());
+        user.setBio(registerRequest.getBio());
         user.setFavSong(Arrays.asList(registerRequest.getTopSongs()));
         user.setFavArtist(Arrays.asList(registerRequest.getTopArtists()));
-
         userRepository.save(user);
 
+        MultipartFile file = registerRequest.getPfp();
+        profileImageRepository.save(ProfileImage.builder()
+                .name(file.getOriginalFilename())
+                .email(registerRequest.getEmail())
+                .type(file.getContentType())
+                .imageData(file.getBytes()).build());
 
         RegisterResponseDto response = new RegisterResponseDto();
         response.setStatusCode(200);

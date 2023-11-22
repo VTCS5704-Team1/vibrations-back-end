@@ -23,8 +23,8 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "profile_picture_link")
-    private String profilePictureLink;
+    @Column(name = "bio")
+    private String bio;
     @Column(name = "email")
     private String email;
     @Column(name = "phone_number")
