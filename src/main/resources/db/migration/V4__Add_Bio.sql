@@ -1,4 +1,4 @@
-ALTER TABLE employees
+ALTER TABLE users
     RENAME COLUMN profile_picture_link TO bio;
 
 CREATE TABLE profile_images (
