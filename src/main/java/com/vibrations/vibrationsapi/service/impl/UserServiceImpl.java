@@ -6,17 +6,25 @@ import com.vibrations.vibrationsapi.dto.*;
 import com.vibrations.vibrationsapi.exception.ValidationException;
 import com.vibrations.vibrationsapi.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import com.vibrations.vibrationsapi.repository.UserRepository;
+import com.vibrations.vibrationsapi.model.User;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
     @Autowired
     private AWSCognitoIdentityProvider cognitoClient;
 
@@ -206,6 +214,25 @@ public class UserServiceImpl implements UserService {
         } catch (Exception e){
             throw new ValidationException(e.getMessage());
         }
+    }
+
+    @Override
+    public RegisterResponseDto register(RegisterRequestDto registerRequest) {
+        User user = new User();
+        BeanUtils.copyProperties(registerRequest, user);
+
+
+        user.setFavSong(Arrays.asList(registerRequest.getTopSongs()));
+        user.setFavArtist(Arrays.asList(registerRequest.getTopArtists()));
+
+        userRepository.save(user);
+
+
+        RegisterResponseDto response = new RegisterResponseDto();
+        response.setStatusCode(200);
+        response.setStatusMessage("User registered successfully");
+
+        return response;
     }
 
 

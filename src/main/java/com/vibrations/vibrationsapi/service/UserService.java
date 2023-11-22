@@ -42,4 +42,7 @@ public interface UserService {
      * @return AWS JSON Response to Delete User request
      */
     AdminDeleteUserResult deleteUser(DeleteAccountDto deleteUserRequest);
+
+    RegisterResponseDto register(RegisterRequestDto registerRequest);
 }
+

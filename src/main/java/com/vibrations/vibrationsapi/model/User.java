@@ -41,6 +41,8 @@ public class User {
     private double latitude;
     @Column(name = "longitude")
     private double longitude;
+    @Column(name = "gender")
+    private String gender;
 
 
 

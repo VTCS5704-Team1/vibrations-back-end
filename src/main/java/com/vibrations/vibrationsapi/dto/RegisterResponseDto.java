@@ -12,12 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RegisterResponseDto {
-
-    private String name;
-    private String email;
-    private String bio;
-    private String gender;
-    private String pfp; // ???
-    private String[] topArtists; // Should only be 5
-    private String[] topSongs; // Should only be 5
+    private int statusCode;
+    private String statusMessage;
 }
