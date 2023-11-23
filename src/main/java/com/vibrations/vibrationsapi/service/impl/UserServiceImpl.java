@@ -236,17 +236,29 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
 
         MultipartFile file = registerRequest.getPfp();
-        profileImageRepository.save(ProfileImage.builder()
-                .name(file.getOriginalFilename())
-                .email(registerRequest.getEmail())
-                .type(file.getContentType())
-                .imageData(file.getBytes()).build());
+        byte[] fileBytes = file.getBytes();
+
+//        profileImageRepository.save(ProfileImage.builder()
+//                .name(file.getOriginalFilename())
+//                .email(registerRequest.getEmail())
+//                .type(file.getContentType())
+//                .imageData(fileBytes).build());
+        System.out.println("here");
 
         RegisterResponseDto response = new RegisterResponseDto();
         response.setStatusCode(200);
         response.setStatusMessage("User registered successfully");
-
         return response;
+    }
+    private static String convertFileToHex(MultipartFile file) throws IOException {
+        byte[] fileBytes = file.getBytes();
+
+        StringBuilder hexStringBuilder = new StringBuilder();
+        for (byte b : fileBytes) {
+            hexStringBuilder.append(String.format("%02X", b));
+        }
+
+        return hexStringBuilder.toString();
     }
 
 
@@ -257,4 +269,5 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
 }

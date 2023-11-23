@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "profile_images")
+@Table(name = "profile_images", schema = "vibrations_backend")
 @Data
 @Builder
 @NoArgsConstructor
@@ -23,6 +23,6 @@ public class ProfileImage {
     @Column(name = "type")
     private String type;
     @Lob
-    @Column(name = "imagedata", length = 1000)
+    @Column(name = "imagedata", columnDefinition = "bytea")
     private byte[] imageData;
 }

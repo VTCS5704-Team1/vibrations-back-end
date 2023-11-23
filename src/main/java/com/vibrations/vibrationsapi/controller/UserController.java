@@ -61,17 +61,16 @@ public class UserController {
     }
 
 
-    @PostMapping(path="/registerUser", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE},
-            produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<RegisterResponseDto> register(
-            @RequestPart("firstName") String firstName,
-            @RequestPart("lastName") String lastName,
-            @RequestPart("email") String email,
-            @RequestPart("bio") String bio,
-            @RequestPart("gender") String gender,
-            @RequestPart("pfp") MultipartFile pfp,
-            @RequestPart("topArtists") String[] topArtists,
-            @RequestPart("topSongs") String[] topSongs
+    @PostMapping(path="/registerUser")
+    public ResponseEntity<?> register(
+            @RequestParam("firstName") String firstName,
+            @RequestParam("lastName") String lastName,
+            @RequestParam("email") String email,
+            @RequestParam("bio") String bio,
+            @RequestParam("gender") String gender,
+            @RequestParam("pfp") MultipartFile pfp,
+            @RequestParam("topArtists") String[] topArtists,
+            @RequestParam("topSongs") String[] topSongs
     ) {
         try {
             RegisterRequestDto registerRequest = new RegisterRequestDto();
@@ -84,6 +83,7 @@ public class UserController {
             registerRequest.setTopArtists(topArtists);
             registerRequest.setTopSongs(topSongs);
 
+            System.out.println("response");
             return ResponseEntity.ok(userService.register(registerRequest));
         } catch (IOException e) {
             throw new RuntimeException(e);
