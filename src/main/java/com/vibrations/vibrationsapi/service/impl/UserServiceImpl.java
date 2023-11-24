@@ -45,13 +45,27 @@ public class UserServiceImpl implements UserService {
             AttributeType emailAttr = new AttributeType().withName("email").withValue(signUpRequest.getEmail());
             AttributeType emailVerifiedAttr = new AttributeType().withName("email_verified").withValue("true");
             // Get Other Attributes
-            AttributeType birthdateAttr = new AttributeType().withName("birthdate").withValue(signUpRequest.getBirthdate());
-            AttributeType genderAttr = new AttributeType().withName("gender").withValue(signUpRequest.getGender());
+            AttributeType birthdateAttr = new AttributeType()
+                    .withName("birthdate")
+                    .withValue(signUpRequest.getBirthdate());
+            AttributeType genderAttr = new AttributeType().
+                    withName("gender")
+                    .withValue(signUpRequest.getGender());
+            AttributeType givenNameAttr = new AttributeType().
+                    withName("given_name")
+                    .withValue(signUpRequest.getFirstName());
+            AttributeType familyNameAttr = new AttributeType()
+                    .withName("family_name")
+                    .withValue(signUpRequest.getLastName());
+            AttributeType phoneNumberAttr = new AttributeType()
+                    .withName("phone_number")
+                    .withValue(signUpRequest.getPhoneNumber());
 
             // Create user request to Cognito
             AdminCreateUserRequest userRequest = new AdminCreateUserRequest().withUserPoolId(userPoolId)
                     .withUsername(signUpRequest.getEmail()).withTemporaryPassword(signUpRequest.getPassword())
-                    .withUserAttributes(emailAttr, emailVerifiedAttr, birthdateAttr, genderAttr)
+                    .withUserAttributes(emailAttr, emailVerifiedAttr, birthdateAttr, genderAttr,
+                            familyNameAttr, givenNameAttr, phoneNumberAttr)
                     .withMessageAction(MessageActionType.SUPPRESS)
                     .withDesiredDeliveryMediums(DeliveryMediumType.EMAIL);
 
@@ -67,7 +81,7 @@ public class UserServiceImpl implements UserService {
                     .withPassword(signUpRequest.getPassword()).withPermanent(true);
 
             cognitoClient.adminSetUserPassword(adminSetUserPasswordRequest);
-            signUpResponse.setStatusCode(0);
+            signUpResponse.setStatusCode(200);
             signUpResponse.setStatusMessage("Successfully created user account.");
         } catch (Exception e) {
             throw new ValidationException("Error during signup: " + e.getMessage());
