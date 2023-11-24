@@ -118,8 +118,6 @@ public class UserServiceImpl implements UserService {
                         final Map<String, String> challengeResponses = new HashMap<>();
                         challengeResponses.put("USERNAME", signInRequest.getEmail());
                         challengeResponses.put("PASSWORD", signInRequest.getPassword());
-                        // add new password
-                        challengeResponses.put("NEW_PASSWORD", signInRequest.getNewPassword());
 
                         final AdminRespondToAuthChallengeRequest request =
                                 new AdminRespondToAuthChallengeRequest()
