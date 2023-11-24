@@ -4,19 +4,31 @@ import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
 import com.amazonaws.services.cognitoidp.model.*;
 import com.vibrations.vibrationsapi.dto.*;
 import com.vibrations.vibrationsapi.exception.ValidationException;
+import com.vibrations.vibrationsapi.model.ProfileImage;
+import com.vibrations.vibrationsapi.repository.ProfileImageRepository;
 import com.vibrations.vibrationsapi.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import com.vibrations.vibrationsapi.repository.UserRepository;
+import com.vibrations.vibrationsapi.model.User;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
     @Autowired
     private AWSCognitoIdentityProvider cognitoClient;
 
@@ -208,6 +220,52 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Autowired
+    ProfileImageRepository profileImageRepository;
+    @Override
+    public RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException {
+        User user = new User();
+
+        user.setEmail(registerRequest.getEmail());
+        user.setGender(registerRequest.getGender());
+        user.setFirstName(registerRequest.getFirstName());
+        user.setLastName(registerRequest.getLastName());
+        user.setBio(registerRequest.getBio());
+        user.setFavSong(Arrays.asList(registerRequest.getTopSongs()));
+        user.setFavArtist(Arrays.asList(registerRequest.getTopArtists()));
+        userRepository.save(user);
+
+        MultipartFile file = registerRequest.getPfp();
+        byte[] fileBytes = file.getBytes();
+
+      //profileImageRepository
+        ProfileImage profileImage = new ProfileImage();
+        profileImage.setName(file.getOriginalFilename());
+        profileImage.setEmail(registerRequest.getEmail());
+        profileImage.setType(file.getContentType());
+        profileImage.setImageData(fileBytes);
+        System.out.println(Arrays.toString(fileBytes));
+        System.out.println(fileBytes);
+        profileImageRepository.save(profileImage);
+
+        System.out.println("here");
+
+        RegisterResponseDto response = new RegisterResponseDto();
+        response.setStatusCode(200);
+        response.setStatusMessage("User registered successfully");
+        return response;
+    }
+    private static String convertFileToHex(MultipartFile file) throws IOException {
+        byte[] fileBytes = file.getBytes();
+
+        StringBuilder hexStringBuilder = new StringBuilder();
+        for (byte b : fileBytes) {
+            hexStringBuilder.append(String.format("%02X", b));
+        }
+
+        return hexStringBuilder.toString();
+    }
+
 
     private String getAccessToken(HttpServletRequest request) {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
@@ -216,4 +274,5 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
 }

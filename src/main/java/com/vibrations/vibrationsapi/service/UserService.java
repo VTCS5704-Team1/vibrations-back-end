@@ -7,6 +7,8 @@ import com.vibrations.vibrationsapi.dto.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 
+import java.io.IOException;
+
 public interface UserService {
     /**
      * Method for registering an account using AWS Cognito
@@ -42,4 +44,7 @@ public interface UserService {
      * @return AWS JSON Response to Delete User request
      */
     AdminDeleteUserResult deleteUser(DeleteAccountDto deleteUserRequest);
+
+    RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException;
 }
+

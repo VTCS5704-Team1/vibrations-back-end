@@ -8,7 +8,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import com.vibrations.vibrationsapi.service.UserService;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 
@@ -21,7 +23,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(path="/register", consumes = {MediaType.APPLICATION_JSON_VALUE},
+    @PostMapping(path="/register", consumes = {MediaType.APPLICATION_JSON_VALUE} ,
     produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<SignUpResponseDto> signUp(@RequestBody SignUpRequestDto signUpRequest) {
         return ResponseEntity.ok(userService.signUp(signUpRequest));
@@ -56,6 +58,36 @@ public class UserController {
     @GetMapping("/logout/success")
     public ResponseEntity<?> logoutSuccess() {
         return ResponseEntity.ok(Arrays.asList("Logged out Successfully!"));
+    }
+
+
+    @PostMapping(path="/registerUser")
+    public ResponseEntity<?> register(
+            @RequestParam("firstName") String firstName,
+            @RequestParam("lastName") String lastName,
+            @RequestParam("email") String email,
+            @RequestParam("bio") String bio,
+            @RequestParam("gender") String gender,
+            @RequestParam("pfp") MultipartFile pfp,
+            @RequestParam("topArtists") String[] topArtists,
+            @RequestParam("topSongs") String[] topSongs
+    ) {
+        try {
+            RegisterRequestDto registerRequest = new RegisterRequestDto();
+            registerRequest.setFirstName(firstName);
+            registerRequest.setLastName(lastName);
+            registerRequest.setEmail(email);
+            registerRequest.setBio(bio);
+            registerRequest.setGender(gender);
+            registerRequest.setPfp(pfp);
+            registerRequest.setTopArtists(topArtists);
+            registerRequest.setTopSongs(topSongs);
+
+            System.out.println("response");
+            return ResponseEntity.ok(userService.register(registerRequest));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
