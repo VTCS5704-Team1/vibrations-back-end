@@ -3,6 +3,7 @@ package com.vibrations.vibrationsapi.service.impl;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectResult;
+import com.vibrations.vibrationsapi.dto.UploadImageResponseDto;
 import com.vibrations.vibrationsapi.exception.ValidationException;
 import com.vibrations.vibrationsapi.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +28,19 @@ public class S3ServiceImpl implements S3Service {
 
     @Override
     @Async
-    public PutObjectResult uploadFile(MultipartFile mpFile) throws IOException {
+    public UploadImageResponseDto uploadFile(MultipartFile mpFile) throws IOException {
         try {
             final File file = convertMultipartFileToFile(mpFile);
             final String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
             final PutObjectRequest request = new PutObjectRequest(bucketName, uniqueFileName, file);
-            final PutObjectResult response = s3Client.putObject(request);
+            s3Client.putObject(request);
             file.delete();
+
+            UploadImageResponseDto response = new UploadImageResponseDto();
+            response.setStatusCode(200);
+            response.setStatusMessage("Image Successfully Uploaded!");
+            response.setFileName(uniqueFileName);
+
             return response;
         } catch (Exception e) {
             throw new ValidationException(e.getMessage());

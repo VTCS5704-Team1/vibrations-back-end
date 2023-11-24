@@ -1,6 +1,7 @@
 package com.vibrations.vibrationsapi.service;
 
 import com.amazonaws.services.s3.model.PutObjectResult;
+import com.vibrations.vibrationsapi.dto.UploadImageResponseDto;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -12,7 +13,8 @@ public interface S3Service {
      * @param mpFile -- File being uploaded
      * @return AWS S3 JSON response to PutObject request
      */
-    PutObjectResult uploadFile(MultipartFile mpFile) throws IOException;
+    UploadImageResponseDto uploadFile(MultipartFile mpFile) throws IOException;
+
 
 
 }
