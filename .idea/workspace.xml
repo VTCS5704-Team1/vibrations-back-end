@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added custom reponse to image upload">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/DownloadImageRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/DownloadImageResponseDto.java" afterDir="false" />
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added ability to download images from S3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/ImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/ImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/S3Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/S3Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/S3ServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/S3ServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700856287150</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added ability to download images from S3">
+      <option name="closed" value="true" />
+      <created>1700857834471</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1700857834471</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -312,7 +316,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Wrote deploy script" />
     <MESSAGE value="Fixed typos in deploy" />
     <MESSAGE value="Added gitignore file" />
     <MESSAGE value="Fix to deploy yml" />
@@ -337,7 +340,8 @@
     <MESSAGE value="New Password remove" />
     <MESSAGE value="Upload image to AWS s3" />
     <MESSAGE value="Added custom reponse to image upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added custom reponse to image upload" />
+    <MESSAGE value="Added ability to download images from S3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added ability to download images from S3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
