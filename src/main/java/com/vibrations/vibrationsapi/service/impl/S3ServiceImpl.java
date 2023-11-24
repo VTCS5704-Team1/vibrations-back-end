@@ -2,7 +2,11 @@ package com.vibrations.vibrationsapi.service.impl;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.amazonaws.services.s3.model.PutObjectResult;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectInputStream;
+import com.amazonaws.util.IOUtils;
+import com.vibrations.vibrationsapi.dto.DownloadImageRequestDto;
+import com.vibrations.vibrationsapi.dto.DownloadImageResponseDto;
 import com.vibrations.vibrationsapi.dto.UploadImageResponseDto;
 import com.vibrations.vibrationsapi.exception.ValidationException;
 import com.vibrations.vibrationsapi.service.S3Service;
@@ -42,6 +46,27 @@ public class S3ServiceImpl implements S3Service {
             response.setFileName(uniqueFileName);
 
             return response;
+        } catch (Exception e) {
+            throw new ValidationException(e.getMessage());
+        }
+    }
+
+    @Override
+    public DownloadImageResponseDto downloadFile(DownloadImageRequestDto downloadRequest) {
+        try {
+            DownloadImageResponseDto downloadResponse = new DownloadImageResponseDto();
+
+            final S3Object image = s3Client.getObject(bucketName,
+                    downloadRequest.getFileName());
+            final S3ObjectInputStream stream = image.getObjectContent();
+            final byte[] imageData = IOUtils.toByteArray(stream);
+
+            downloadResponse.setStatusCode(200);
+            downloadResponse.setStatusMessage("Image data downloaded");
+            downloadResponse.setImageData(imageData);
+
+            return downloadResponse;
+
         } catch (Exception e) {
             throw new ValidationException(e.getMessage());
         }
