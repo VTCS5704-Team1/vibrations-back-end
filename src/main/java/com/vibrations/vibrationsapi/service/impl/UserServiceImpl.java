@@ -238,11 +238,16 @@ public class UserServiceImpl implements UserService {
         MultipartFile file = registerRequest.getPfp();
         byte[] fileBytes = file.getBytes();
 
-//        profileImageRepository.save(ProfileImage.builder()
-//                .name(file.getOriginalFilename())
-//                .email(registerRequest.getEmail())
-//                .type(file.getContentType())
-//                .imageData(fileBytes).build());
+      //profileImageRepository
+        ProfileImage profileImage = new ProfileImage();
+        profileImage.setName(file.getOriginalFilename());
+        profileImage.setEmail(registerRequest.getEmail());
+        profileImage.setType(file.getContentType());
+        profileImage.setImageData(fileBytes);
+        System.out.println(Arrays.toString(fileBytes));
+        System.out.println(fileBytes);
+        profileImageRepository.save(profileImage);
+
         System.out.println("here");
 
         RegisterResponseDto response = new RegisterResponseDto();
