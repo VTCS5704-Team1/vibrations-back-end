@@ -14,5 +14,4 @@ import lombok.NoArgsConstructor;
 public class SignInRequestDto {
     private String email;
     private String password;
-    private String newPassword;
 }
