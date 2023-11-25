@@ -2,6 +2,7 @@ package com.vibrations.vibrationsapi.service.impl;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.PutObjectResult;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectInputStream;
 import com.amazonaws.util.IOUtils;
@@ -35,9 +36,11 @@ public class S3ServiceImpl implements S3Service {
     public UploadImageResponseDto uploadFile(MultipartFile mpFile) throws IOException {
         try {
             final File file = convertMultipartFileToFile(mpFile);
-            final String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
+            //final String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
+            final String uniqueFileName = file.getName();
             final PutObjectRequest request = new PutObjectRequest(bucketName, uniqueFileName, file);
-            s3Client.putObject(request);
+            PutObjectResult temp = s3Client.putObject(request);
+            System.out.println(temp);
             file.delete();
 
             UploadImageResponseDto response = new UploadImageResponseDto();
