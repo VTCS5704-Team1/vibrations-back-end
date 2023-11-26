@@ -6,6 +6,7 @@ import com.vibrations.vibrationsapi.dto.*;
 import com.vibrations.vibrationsapi.exception.ValidationException;
 import com.vibrations.vibrationsapi.model.ProfileImage;
 import com.vibrations.vibrationsapi.repository.ProfileImageRepository;
+import com.vibrations.vibrationsapi.service.S3Service;
 import com.vibrations.vibrationsapi.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.BeanUtils;
@@ -18,10 +19,7 @@ import com.vibrations.vibrationsapi.model.User;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -118,8 +116,6 @@ public class UserServiceImpl implements UserService {
                         final Map<String, String> challengeResponses = new HashMap<>();
                         challengeResponses.put("USERNAME", signInRequest.getEmail());
                         challengeResponses.put("PASSWORD", signInRequest.getPassword());
-                        // add new password
-                        challengeResponses.put("NEW_PASSWORD", signInRequest.getNewPassword());
 
                         final AdminRespondToAuthChallengeRequest request =
                                 new AdminRespondToAuthChallengeRequest()
@@ -236,8 +232,10 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     ProfileImageRepository profileImageRepository;
+    @Autowired
+    private S3Service s3Service;
     @Override
-    public RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException {
+    public RegisterResponseDto register(RegisterRequestDto registerRequest ) throws IOException {
         User user = new User();
 
         user.setEmail(registerRequest.getEmail());
@@ -248,37 +246,52 @@ public class UserServiceImpl implements UserService {
         user.setFavSong(Arrays.asList(registerRequest.getTopSongs()));
         user.setFavArtist(Arrays.asList(registerRequest.getTopArtists()));
         userRepository.save(user);
+        s3Service.uploadFile(registerRequest.getPfp());
 
         MultipartFile file = registerRequest.getPfp();
-        byte[] fileBytes = file.getBytes();
 
-      //profileImageRepository
         ProfileImage profileImage = new ProfileImage();
         profileImage.setName(file.getOriginalFilename());
         profileImage.setEmail(registerRequest.getEmail());
         profileImage.setType(file.getContentType());
-        profileImage.setImageData(fileBytes);
-        System.out.println(Arrays.toString(fileBytes));
-        System.out.println(fileBytes);
-        profileImageRepository.save(profileImage);
 
-        System.out.println("here");
+
+        profileImageRepository.save(profileImage);
 
         RegisterResponseDto response = new RegisterResponseDto();
         response.setStatusCode(200);
         response.setStatusMessage("User registered successfully");
         return response;
     }
-    private static String convertFileToHex(MultipartFile file) throws IOException {
-        byte[] fileBytes = file.getBytes();
 
-        StringBuilder hexStringBuilder = new StringBuilder();
-        for (byte b : fileBytes) {
-            hexStringBuilder.append(String.format("%02X", b));
+    @Override
+    public DownloadUserResponseDto getUser(DownloadUserRequestDto downloadUserRequestDto){
+        DownloadUserResponseDto downloadUserResponseDto= new DownloadUserResponseDto();
+        Optional<User> user = findUserByEmail(downloadUserRequestDto.getEmail()).stream().findFirst();
+        if(user.isPresent()) {
+            downloadUserResponseDto.setFirstName(user.get().getFirstName());
+            downloadUserResponseDto.setLastName(user.get().getLastName());
+            downloadUserResponseDto.setBio(user.get().getBio());
+            downloadUserResponseDto.setGender(user.get().getGender());
+            downloadUserResponseDto.setTopSongs(user.get().getFavArtist().toArray(new String[0]));
+            downloadUserResponseDto.setTopArtists(user.get().getFavArtist().toArray(new String[0]));
+            ProfileImage profileImage = findProfileByEmail(downloadUserRequestDto.getEmail());
+            DownloadImageRequestDto downloadRequest = new DownloadImageRequestDto();
+            downloadRequest.setFileName(profileImage.getName());
+            DownloadImageResponseDto imageResponseDto = s3Service.downloadFile(downloadRequest);
+            downloadUserResponseDto.setPfp(imageResponseDto.getImageData());
+            downloadUserResponseDto.setStatusCode(imageResponseDto.getStatusCode());
+            downloadUserResponseDto.setStatusMessage(imageResponseDto.getStatusMessage());
+            return downloadUserResponseDto;
+        }
+        else{
+            downloadUserResponseDto.setStatusMessage("User not found");
+            downloadUserResponseDto.setStatusCode(404);
+            return downloadUserResponseDto;
         }
 
-        return hexStringBuilder.toString();
     }
+
 
 
     private String getAccessToken(HttpServletRequest request) {
@@ -287,6 +300,14 @@ public class UserServiceImpl implements UserService {
             return authorizationHeader.substring(7);
         }
         return null;
+    }
+
+    public Optional<User> findUserByEmail(String email) {
+        return Optional.ofNullable(userRepository.findByEmail(email));
+    }
+
+    public ProfileImage findProfileByEmail(String email){
+        return  profileImageRepository.findByEmail(email);
     }
 
 }

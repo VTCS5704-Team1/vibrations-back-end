@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SignInRequestDto {
-    private String email;
-    private String password;
+public class UploadImageResponseDto {
+
+    private int statusCode;
+    private String statusMessage;
+    private String fileName;
 }

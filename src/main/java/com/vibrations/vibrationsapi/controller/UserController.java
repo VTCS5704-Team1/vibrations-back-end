@@ -2,6 +2,9 @@ package com.vibrations.vibrationsapi.controller;
 
 
 import com.vibrations.vibrationsapi.dto.*;
+import com.vibrations.vibrationsapi.model.ProfileImage;
+import com.vibrations.vibrationsapi.model.User;
+import com.vibrations.vibrationsapi.service.S3Service;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -12,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Optional;
 
 
 // TODO: Ensure that when a new user is registered, that user data is transferred to the SQL database
@@ -22,6 +26,9 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private S3Service s3Service;
 
     @PostMapping(path="/register", consumes = {MediaType.APPLICATION_JSON_VALUE} ,
     produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -68,9 +75,9 @@ public class UserController {
             @RequestParam("email") String email,
             @RequestParam("bio") String bio,
             @RequestParam("gender") String gender,
-            @RequestParam("pfp") MultipartFile pfp,
             @RequestParam("topArtists") String[] topArtists,
-            @RequestParam("topSongs") String[] topSongs
+            @RequestParam("topSongs") String[] topSongs,
+            @RequestParam("pfp") MultipartFile pfp
     ) {
         try {
             RegisterRequestDto registerRequest = new RegisterRequestDto();
@@ -82,13 +89,20 @@ public class UserController {
             registerRequest.setPfp(pfp);
             registerRequest.setTopArtists(topArtists);
             registerRequest.setTopSongs(topSongs);
-
             System.out.println("response");
             return ResponseEntity.ok(userService.register(registerRequest));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
+
+    @GetMapping(path="/getUser")
+    public ResponseEntity<?> register(@RequestBody DownloadUserRequestDto downloadUserRequestDto) {
+        return ResponseEntity.ok(userService.getUser(downloadUserRequestDto));
+
+    }
+
+
 
 
 
