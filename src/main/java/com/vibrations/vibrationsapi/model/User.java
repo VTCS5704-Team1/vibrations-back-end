@@ -41,6 +41,8 @@ public class User {
     private double longitude;
     @Column(name = "gender")
     private String gender;
+    @Column(name = "matches")
+    private List<String> matches;
 
 
 
