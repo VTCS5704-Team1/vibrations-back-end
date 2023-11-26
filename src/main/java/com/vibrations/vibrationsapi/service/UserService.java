@@ -4,9 +4,11 @@ import com.amazonaws.services.cognitoidp.model.AdminDeleteUserResult;
 import com.amazonaws.services.cognitoidp.model.AdminSetUserPasswordResult;
 import com.amazonaws.services.cognitoidp.model.GlobalSignOutResult;
 import com.vibrations.vibrationsapi.dto.*;
+import com.vibrations.vibrationsapi.model.ProfileImage;
 import com.vibrations.vibrationsapi.model.User;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -55,6 +57,10 @@ public interface UserService {
     RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException;
 
     Optional<User> findUserByEmail(String email);
+
+    ProfileImage findProfileByEmail(String email);
+
+    DownloadUserResponseDto getUser(DownloadUserRequestDto downloadUserRequestDto);
 }
 
 

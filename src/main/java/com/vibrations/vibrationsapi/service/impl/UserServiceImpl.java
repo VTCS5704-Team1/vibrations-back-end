@@ -235,7 +235,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private S3Service s3Service;
     @Override
-    public RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException {
+    public RegisterResponseDto register(RegisterRequestDto registerRequest ) throws IOException {
         User user = new User();
 
         user.setEmail(registerRequest.getEmail());
@@ -250,35 +250,48 @@ public class UserServiceImpl implements UserService {
 
         MultipartFile file = registerRequest.getPfp();
 
-        byte[] fileBytes = file.getBytes();
-
-      //profileImageRepository
         ProfileImage profileImage = new ProfileImage();
         profileImage.setName(file.getOriginalFilename());
         profileImage.setEmail(registerRequest.getEmail());
         profileImage.setType(file.getContentType());
-        profileImage.setImageData(fileBytes);
-        //System.out.println(Arrays.toString(fileBytes));
+
 
         profileImageRepository.save(profileImage);
-
-        System.out.println("here");
 
         RegisterResponseDto response = new RegisterResponseDto();
         response.setStatusCode(200);
         response.setStatusMessage("User registered successfully");
         return response;
     }
-//    private static String convertFileToHex(MultipartFile file) throws IOException {
-//        byte[] fileBytes = file.getBytes();
-//
-//        StringBuilder hexStringBuilder = new StringBuilder();
-//        for (byte b : fileBytes) {
-//            hexStringBuilder.append(String.format("%02X", b));
-//        }
-//
-//        return hexStringBuilder.toString();
-//    }
+
+    @Override
+    public DownloadUserResponseDto getUser(DownloadUserRequestDto downloadUserRequestDto){
+        DownloadUserResponseDto downloadUserResponseDto= new DownloadUserResponseDto();
+        Optional<User> user = findUserByEmail(downloadUserRequestDto.getEmail()).stream().findFirst();
+        if(user.isPresent()) {
+            downloadUserResponseDto.setFirstName(user.get().getFirstName());
+            downloadUserResponseDto.setLastName(user.get().getLastName());
+            downloadUserResponseDto.setBio(user.get().getBio());
+            downloadUserResponseDto.setGender(user.get().getGender());
+            downloadUserResponseDto.setTopSongs(user.get().getFavArtist().toArray(new String[0]));
+            downloadUserResponseDto.setTopArtists(user.get().getFavArtist().toArray(new String[0]));
+            ProfileImage profileImage = findProfileByEmail(downloadUserRequestDto.getEmail());
+            DownloadImageRequestDto downloadRequest = new DownloadImageRequestDto();
+            downloadRequest.setFileName(profileImage.getName());
+            DownloadImageResponseDto imageResponseDto = s3Service.downloadFile(downloadRequest);
+            downloadUserResponseDto.setPfp(imageResponseDto.getImageData());
+            downloadUserResponseDto.setStatusCode(imageResponseDto.getStatusCode());
+            downloadUserResponseDto.setStatusMessage(imageResponseDto.getStatusMessage());
+            return downloadUserResponseDto;
+        }
+        else{
+            downloadUserResponseDto.setStatusMessage("User not found");
+            downloadUserResponseDto.setStatusCode(404);
+            return downloadUserResponseDto;
+        }
+
+    }
+
 
 
     private String getAccessToken(HttpServletRequest request) {
@@ -291,6 +304,10 @@ public class UserServiceImpl implements UserService {
 
     public Optional<User> findUserByEmail(String email) {
         return Optional.ofNullable(userRepository.findByEmail(email));
+    }
+
+    public ProfileImage findProfileByEmail(String email){
+        return  profileImageRepository.findByEmail(email);
     }
 
 }

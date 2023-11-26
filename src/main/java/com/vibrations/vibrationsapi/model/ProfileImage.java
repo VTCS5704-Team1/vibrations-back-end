@@ -22,7 +22,5 @@ public class ProfileImage {
     private String email;
     @Column(name = "type")
     private String type;
-    @Lob
-    @Column(name = "imagedata", columnDefinition = "bytea")
-    private byte[] imageData;
+
 }
