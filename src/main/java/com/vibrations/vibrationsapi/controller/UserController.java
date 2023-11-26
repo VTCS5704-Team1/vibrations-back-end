@@ -70,27 +70,28 @@ public class UserController {
 
     @PostMapping(path="/registerUser")
     public ResponseEntity<?> register(
-            @RequestParam("firstName") String firstName,
-            @RequestParam("lastName") String lastName,
-            @RequestParam("email") String email,
-            @RequestParam("bio") String bio,
-            @RequestParam("gender") String gender,
-            @RequestParam("topArtists") String[] topArtists,
-            @RequestParam("topSongs") String[] topSongs,
-            @RequestParam("pfp") MultipartFile pfp
+//            @RequestParam("firstName") String firstName,
+//            @RequestParam("lastName") String lastName,
+//            @RequestParam("email") String email,
+//            @RequestParam("bio") String bio,
+//            @RequestParam("gender") String gender,
+//            @RequestParam("topArtists") String[] topArtists,
+//            @RequestParam("topSongs") String[] topSongs,
+            @RequestPart("body") RegisterRequestDto registerRequest,
+            @RequestPart("pfp") MultipartFile pfp
     ) {
         try {
-            RegisterRequestDto registerRequest = new RegisterRequestDto();
-            registerRequest.setFirstName(firstName);
-            registerRequest.setLastName(lastName);
-            registerRequest.setEmail(email);
-            registerRequest.setBio(bio);
-            registerRequest.setGender(gender);
-            registerRequest.setPfp(pfp);
-            registerRequest.setTopArtists(topArtists);
-            registerRequest.setTopSongs(topSongs);
+//            RegisterRequestDto registerRequest = new RegisterRequestDto();
+//            registerRequest.setFirstName(firstName);
+//            registerRequest.setLastName(lastName);
+//            registerRequest.setEmail(email);
+//            registerRequest.setBio(bio);
+//            registerRequest.setGender(gender);
+//            registerRequest.setPfp(pfp);
+//            registerRequest.setTopArtists(topArtists);
+//            registerRequest.setTopSongs(topSongs);
             System.out.println("response");
-            return ResponseEntity.ok(userService.register(registerRequest));
+            return ResponseEntity.ok(userService.register(registerRequest , pfp));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -102,17 +103,4 @@ public class UserController {
 
     }
 
-
-
-
-
-    /*@GetMapping("/{userId}")
-    public ResponseEntity<User> getUserProfile(@PathVariable Long userId) {
-        User user = userService.getUserById(userId);
-        if (user != null) {
-            return ResponseEntity.ok(user);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    } */
 }

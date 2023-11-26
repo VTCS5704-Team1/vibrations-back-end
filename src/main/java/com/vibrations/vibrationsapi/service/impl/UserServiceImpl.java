@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import com.vibrations.vibrationsapi.repository.UserRepository;
 import com.vibrations.vibrationsapi.model.User;
 import org.springframework.web.multipart.MultipartFile;
-
+import java.time.LocalDateTime;
 import java.io.IOException;
 import java.util.*;
 
@@ -235,7 +235,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private S3Service s3Service;
     @Override
-    public RegisterResponseDto register(RegisterRequestDto registerRequest ) throws IOException {
+    public RegisterResponseDto register(RegisterRequestDto registerRequest , MultipartFile file) throws IOException {
         User user = new User();
 
         user.setEmail(registerRequest.getEmail());
@@ -245,17 +245,18 @@ public class UserServiceImpl implements UserService {
         user.setBio(registerRequest.getBio());
         user.setFavSong(Arrays.asList(registerRequest.getTopSongs()));
         user.setFavArtist(Arrays.asList(registerRequest.getTopArtists()));
+        user.setLatitude(registerRequest.getLatitude());
+        user.setLongitude(registerRequest.getLongitude());
+        user.setMaxDistance(registerRequest.getMaxDistance());
+        user.setPhoneNumber(registerRequest.getPhoneNumber());
+        String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
         userRepository.save(user);
-        s3Service.uploadFile(registerRequest.getPfp());
-
-        MultipartFile file = registerRequest.getPfp();
+        s3Service.uploadFile(file , uniqueFileName);
 
         ProfileImage profileImage = new ProfileImage();
-        profileImage.setName(file.getOriginalFilename());
+        profileImage.setName(uniqueFileName);
         profileImage.setEmail(registerRequest.getEmail());
         profileImage.setType(file.getContentType());
-
-
         profileImageRepository.save(profileImage);
 
         RegisterResponseDto response = new RegisterResponseDto();

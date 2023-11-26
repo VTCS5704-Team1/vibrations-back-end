@@ -18,9 +18,11 @@ public class RegisterRequestDto {
     private String email;
     private String bio;
     private String gender;
-    private MultipartFile pfp; // ???
-    private String[] topArtists; // Should only be 5
-    private String[] topSongs; // Should only be 5
-//    private double latitude;
-//    private double longitude;
+    private String[] topArtists;
+    private String[] topSongs;
+    //new
+    private Long phoneNumber;
+    private double maxDistance;
+    private double latitude;
+    private double longitude;
 }
