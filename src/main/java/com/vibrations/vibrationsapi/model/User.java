@@ -33,10 +33,8 @@ public class User {
     private List<String> favSong;
     @Column(name = "fav_artist")
     private List<String> favArtist;
-    @Column(name = "fav_genre")
-    private List<String> favGenre;
-    @Column(name = "score")
-    private double score;
+    @Column(name = "max_distance")
+    private double maxDistance;
     @Column(name = "latitude")
     private double latitude;
     @Column(name = "longitude")

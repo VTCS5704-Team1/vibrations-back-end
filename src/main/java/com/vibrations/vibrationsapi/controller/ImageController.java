@@ -17,14 +17,14 @@ public class ImageController {
     @Autowired
     private S3Service s3Service;
 
-    @PostMapping(value = "/upload")
-    public ResponseEntity<?> uploadPFP(@RequestPart(value="pfp") final MultipartFile mpFile) {
-        try {
-            return ResponseEntity.ok(s3Service.uploadFile(mpFile));
-        } catch (IOException ex) {
-            throw new ValidationException(ex.getMessage());
-        }
-    }
+//    @PostMapping(value = "/upload")
+//    public ResponseEntity<?> uploadPFP(@RequestPart(value="pfp") final MultipartFile mpFile) {
+//        try {
+//            return ResponseEntity.ok(s3Service.uploadFile(mpFile));
+//        } catch (IOException ex) {
+//            throw new ValidationException(ex.getMessage());
+//        }
+//    }
 
     @GetMapping(value = "/download")
     public ResponseEntity<?> downloadPFP(@RequestBody DownloadImageRequestDto downloadRequest) {

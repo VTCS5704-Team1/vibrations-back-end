@@ -54,7 +54,7 @@ public interface UserService {
      */
     AdminDeleteUserResult deleteUser(DeleteAccountDto deleteUserRequest);
 
-    RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException;
+    RegisterResponseDto register(RegisterRequestDto registerRequest , MultipartFile file) throws IOException;
 
     Optional<User> findUserByEmail(String email);
 

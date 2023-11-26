@@ -15,7 +15,7 @@ public interface S3Service {
      * @param mpFile -- File being uploaded
      * @return AWS S3 JSON response to PutObject request
      */
-    UploadImageResponseDto uploadFile(MultipartFile mpFile) throws IOException;
+    UploadImageResponseDto uploadFile(MultipartFile mpFile , String uniqueFileName) throws IOException;
 
     DownloadImageResponseDto downloadFile(DownloadImageRequestDto downloadRequest);
 

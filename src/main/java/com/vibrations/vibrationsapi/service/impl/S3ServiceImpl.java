@@ -33,11 +33,11 @@ public class S3ServiceImpl implements S3Service {
 
     @Override
     @Async
-    public UploadImageResponseDto uploadFile(MultipartFile mpFile) throws IOException {
+    public UploadImageResponseDto uploadFile(MultipartFile mpFile , String uniqueFileName) throws IOException {
         try {
             final File file = convertMultipartFileToFile(mpFile);
             //final String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
-            final String uniqueFileName = file.getName();
+            //final String uniqueFileName = file.getName();
             final PutObjectRequest request = new PutObjectRequest(bucketName, uniqueFileName, file);
             PutObjectResult temp = s3Client.putObject(request);
             System.out.println(temp);
