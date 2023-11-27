@@ -77,10 +77,10 @@ public class UserController {
 //            @RequestParam("gender") String gender,
 //            @RequestParam("topArtists") String[] topArtists,
 //            @RequestParam("topSongs") String[] topSongs,
-            @RequestPart("body") RegisterRequestDto registerRequest,
-            @RequestPart("pfp") MultipartFile pfp
+            @RequestPart("body") RegisterRequestDto registerRequest
+            //@RequestPart("pfp") MultipartFile pfp
     ) {
-        try {
+//        try {
 //            RegisterRequestDto registerRequest = new RegisterRequestDto();
 //            registerRequest.setFirstName(firstName);
 //            registerRequest.setLastName(lastName);
@@ -91,10 +91,11 @@ public class UserController {
 //            registerRequest.setTopArtists(topArtists);
 //            registerRequest.setTopSongs(topSongs);
             System.out.println("response");
-            return ResponseEntity.ok(userService.register(registerRequest , pfp));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+            return ResponseEntity.ok("S'all Good, Man!");
+            //return ResponseEntity.ok(userService.register(registerRequest , pfp));
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @GetMapping(path="/getUser")
