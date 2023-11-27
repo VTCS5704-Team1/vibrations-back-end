@@ -20,7 +20,7 @@ public class DownloadUserResponseDto {
     private String email;
     private String bio;
     private String gender;
-    // private byte[] pfp;
+    private byte[] pfp;
     private String[] topArtists;
     private String[] topSongs;
 }

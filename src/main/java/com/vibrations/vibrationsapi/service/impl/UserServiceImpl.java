@@ -284,13 +284,13 @@ public class UserServiceImpl implements UserService {
             downloadUserResponseDto.setTopSongs(user.getFavSong().toArray(new String[0]));
             downloadUserResponseDto.setTopArtists(user.getFavArtist().toArray(new String[0]));
 
-            /* ProfileImage profileImage = findProfileByEmail(downloadUserRequestDto.getEmail());
+            ProfileImage profileImage = findProfileByEmail(downloadUserRequestDto.getEmail());
             DownloadImageRequestDto downloadRequest = new DownloadImageRequestDto();
             downloadRequest.setFileName(profileImage.getName());
             DownloadImageResponseDto imageResponseDto = s3Service.downloadFile(downloadRequest);
             downloadUserResponseDto.setPfp(imageResponseDto.getImageData());
             downloadUserResponseDto.setStatusCode(imageResponseDto.getStatusCode());
-            downloadUserResponseDto.setStatusMessage(imageResponseDto.getStatusMessage()); */
+            downloadUserResponseDto.setStatusMessage(imageResponseDto.getStatusMessage());
 
             downloadUserResponseDto.setStatusCode(200);
             downloadUserResponseDto.setStatusMessage("User found");
