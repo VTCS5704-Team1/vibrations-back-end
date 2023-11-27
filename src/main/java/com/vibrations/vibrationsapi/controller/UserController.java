@@ -70,32 +70,14 @@ public class UserController {
 
     @PostMapping(path="/registerUser")
     public ResponseEntity<?> register(
-//            @RequestParam("firstName") String firstName,
-//            @RequestParam("lastName") String lastName,
-//            @RequestParam("email") String email,
-//            @RequestParam("bio") String bio,
-//            @RequestParam("gender") String gender,
-//            @RequestParam("topArtists") String[] topArtists,
-//            @RequestParam("topSongs") String[] topSongs,
-            @RequestPart("body") RegisterRequestDto registerRequest
-            //@RequestPart("pfp") MultipartFile pfp
+            @RequestBody RegisterRequestDto registerRequest
     ) {
-//        try {
-//            RegisterRequestDto registerRequest = new RegisterRequestDto();
-//            registerRequest.setFirstName(firstName);
-//            registerRequest.setLastName(lastName);
-//            registerRequest.setEmail(email);
-//            registerRequest.setBio(bio);
-//            registerRequest.setGender(gender);
-//            registerRequest.setPfp(pfp);
-//            registerRequest.setTopArtists(topArtists);
-//            registerRequest.setTopSongs(topSongs);
+        try {
             System.out.println("response");
-            return ResponseEntity.ok("S'all Good, Man!");
-            //return ResponseEntity.ok(userService.register(registerRequest , pfp));
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+            return ResponseEntity.ok(userService.register(registerRequest));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @GetMapping(path="/getUser")
