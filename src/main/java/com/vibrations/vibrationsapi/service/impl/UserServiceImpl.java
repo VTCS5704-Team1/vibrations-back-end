@@ -270,6 +270,13 @@ public class UserServiceImpl implements UserService {
         DownloadUserResponseDto downloadUserResponseDto = new DownloadUserResponseDto();
         try {
             User user = userRepository.findByEmail(downloadUserRequestDto.getEmail());
+
+            if (user == null) {
+                downloadUserResponseDto.setStatusMessage("User not found");
+                downloadUserResponseDto.setStatusCode(404);
+                return downloadUserResponseDto;
+            }
+
             downloadUserResponseDto.setFirstName(user.getFirstName());
             downloadUserResponseDto.setLastName(user.getLastName());
             downloadUserResponseDto.setBio(user.getBio());

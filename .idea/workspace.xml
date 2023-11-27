@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="GetUser fix">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" afterDir="false" />
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="User service fix">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +311,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701057926223</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="User service fix">
+      <option name="closed" value="true" />
+      <created>1701058071293</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1701058071293</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,7 +334,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix to deploy yml" />
     <MESSAGE value="Added verify yml" />
     <MESSAGE value="Changed message" />
     <MESSAGE value="Created Security Configuration Classes" />
@@ -352,7 +358,8 @@
     <MESSAGE value="Added ability to download images from S3" />
     <MESSAGE value="Get User fix" />
     <MESSAGE value="GetUser fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="GetUser fix" />
+    <MESSAGE value="User service fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="User service fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
