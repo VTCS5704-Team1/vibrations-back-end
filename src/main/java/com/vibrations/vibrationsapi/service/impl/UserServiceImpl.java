@@ -267,30 +267,36 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public DownloadUserResponseDto getUser(DownloadUserRequestDto downloadUserRequestDto){
-        DownloadUserResponseDto downloadUserResponseDto= new DownloadUserResponseDto();
-        Optional<User> user = findUserByEmail(downloadUserRequestDto.getEmail()).stream().findFirst();
-        if(user.isPresent()) {
-            downloadUserResponseDto.setFirstName(user.get().getFirstName());
-            downloadUserResponseDto.setLastName(user.get().getLastName());
-            downloadUserResponseDto.setBio(user.get().getBio());
-            downloadUserResponseDto.setGender(user.get().getGender());
-            downloadUserResponseDto.setTopSongs(user.get().getFavArtist().toArray(new String[0]));
-            downloadUserResponseDto.setTopArtists(user.get().getFavArtist().toArray(new String[0]));
-            ProfileImage profileImage = findProfileByEmail(downloadUserRequestDto.getEmail());
+        DownloadUserResponseDto downloadUserResponseDto = new DownloadUserResponseDto();
+        try {
+            User user = userRepository.findByEmail(downloadUserRequestDto.getEmail());
+            downloadUserResponseDto.setFirstName(user.getFirstName());
+            downloadUserResponseDto.setLastName(user.getLastName());
+            downloadUserResponseDto.setBio(user.getBio());
+            downloadUserResponseDto.setGender(user.getGender());
+            downloadUserResponseDto.setTopSongs(user.getFavArtist().toArray(new String[0]));
+            downloadUserResponseDto.setTopArtists(user.getFavArtist().toArray(new String[0]));
+
+            /* ProfileImage profileImage = findProfileByEmail(downloadUserRequestDto.getEmail());
             DownloadImageRequestDto downloadRequest = new DownloadImageRequestDto();
             downloadRequest.setFileName(profileImage.getName());
             DownloadImageResponseDto imageResponseDto = s3Service.downloadFile(downloadRequest);
             downloadUserResponseDto.setPfp(imageResponseDto.getImageData());
             downloadUserResponseDto.setStatusCode(imageResponseDto.getStatusCode());
-            downloadUserResponseDto.setStatusMessage(imageResponseDto.getStatusMessage());
-            return downloadUserResponseDto;
-        }
-        else{
-            downloadUserResponseDto.setStatusMessage("User not found");
-            downloadUserResponseDto.setStatusCode(404);
-            return downloadUserResponseDto;
-        }
+            downloadUserResponseDto.setStatusMessage(imageResponseDto.getStatusMessage()); */
 
+            downloadUserResponseDto.setStatusCode(200);
+            downloadUserResponseDto.setStatusMessage("User found");
+
+
+            return downloadUserResponseDto;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            throw new ValidationException(e.getMessage());
+        }
+            // downloadUserResponseDto.setStatusMessage("User not found");
+            // downloadUserResponseDto.setStatusCode(404);
+            // return downloadUserResponseDto;
     }
 
 
@@ -303,9 +309,9 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    public Optional<User> findUserByEmail(String email) {
+    /* public Optional<User> findUserByEmail(String email) {
         return Optional.ofNullable(userRepository.findByEmail(email));
-    }
+    } */
 
     public ProfileImage findProfileByEmail(String email){
         return  profileImageRepository.findByEmail(email);

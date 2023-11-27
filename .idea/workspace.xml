@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added ability to download images from S3">
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Get User fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/DownloadUserResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/DownloadUserResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "img-fix",
+    "git-widget-placeholder": "developp",
     "last_opened_file_path": "/Users/davidclark/dev/projects/vibrations-back-end",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -316,7 +317,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed typos in deploy" />
     <MESSAGE value="Added gitignore file" />
     <MESSAGE value="Fix to deploy yml" />
     <MESSAGE value="Added verify yml" />
@@ -341,7 +341,8 @@
     <MESSAGE value="Upload image to AWS s3" />
     <MESSAGE value="Added custom reponse to image upload" />
     <MESSAGE value="Added ability to download images from S3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added ability to download images from S3" />
+    <MESSAGE value="Get User fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get User fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
