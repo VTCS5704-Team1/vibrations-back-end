@@ -281,7 +281,7 @@ public class UserServiceImpl implements UserService {
             downloadUserResponseDto.setLastName(user.getLastName());
             downloadUserResponseDto.setBio(user.getBio());
             downloadUserResponseDto.setGender(user.getGender());
-            downloadUserResponseDto.setTopSongs(user.getFavArtist().toArray(new String[0]));
+            downloadUserResponseDto.setTopSongs(user.getFavSong().toArray(new String[0]));
             downloadUserResponseDto.setTopArtists(user.getFavArtist().toArray(new String[0]));
 
             /* ProfileImage profileImage = findProfileByEmail(downloadUserRequestDto.getEmail());
