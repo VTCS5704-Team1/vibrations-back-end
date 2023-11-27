@@ -10,6 +10,8 @@ import com.vibrations.vibrationsapi.dto.DownloadImageRequestDto;
 import com.vibrations.vibrationsapi.dto.DownloadImageResponseDto;
 import com.vibrations.vibrationsapi.dto.UploadImageResponseDto;
 import com.vibrations.vibrationsapi.exception.ValidationException;
+import com.vibrations.vibrationsapi.model.ProfileImage;
+import com.vibrations.vibrationsapi.repository.ProfileImageRepository;
 import com.vibrations.vibrationsapi.service.S3Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,13 +33,20 @@ public class S3ServiceImpl implements S3Service {
     @Autowired
     private AmazonS3 s3Client;
 
+    @Autowired
+    ProfileImageRepository profileImageRepository;
+
     @Override
     @Async
-    public UploadImageResponseDto uploadFile(MultipartFile mpFile , String uniqueFileName) throws IOException {
+    public UploadImageResponseDto uploadFile(MultipartFile mpFile , String email) throws IOException {
         try {
             final File file = convertMultipartFileToFile(mpFile);
-            //final String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
-            //final String uniqueFileName = file.getName();
+            final String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
+            ProfileImage profileImage = new ProfileImage();
+            profileImage.setName(uniqueFileName);
+            profileImage.setEmail(email);
+            profileImage.setType(mpFile.getContentType());
+            profileImageRepository.save(profileImage);
             final PutObjectRequest request = new PutObjectRequest(bucketName, uniqueFileName, file);
             PutObjectResult temp = s3Client.putObject(request);
             System.out.println(temp);

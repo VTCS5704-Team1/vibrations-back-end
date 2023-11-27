@@ -13,13 +13,11 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long messageId;
 
-    @ManyToOne
     @JoinColumn(name = "sender_email", nullable = false)
-    private User senderEmail;
+    private String senderEmail;
 
-    @ManyToOne
     @JoinColumn(name = "receiver_email", nullable = false)
-    private User receiverEmail;
+    private String receiverEmail;
 
     private String content;
     private LocalDateTime timestamp;

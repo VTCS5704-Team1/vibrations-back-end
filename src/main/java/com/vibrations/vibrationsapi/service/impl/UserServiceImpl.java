@@ -235,7 +235,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private S3Service s3Service;
     @Override
-    public RegisterResponseDto register(RegisterRequestDto registerRequest , MultipartFile file) throws IOException {
+    public RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException {
         User user = new User();
 
         user.setEmail(registerRequest.getEmail());
@@ -249,15 +249,15 @@ public class UserServiceImpl implements UserService {
         user.setLongitude(registerRequest.getLongitude());
         user.setMaxDistance(registerRequest.getMaxDistance());
         user.setPhoneNumber(registerRequest.getPhoneNumber());
-        String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
+//        String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
         userRepository.save(user);
-        s3Service.uploadFile(file , uniqueFileName);
+        //s3Service.uploadFile(file , uniqueFileName);
 
-        ProfileImage profileImage = new ProfileImage();
-        profileImage.setName(uniqueFileName);
-        profileImage.setEmail(registerRequest.getEmail());
-        profileImage.setType(file.getContentType());
-        profileImageRepository.save(profileImage);
+//        ProfileImage profileImage = new ProfileImage();
+//        profileImage.setName(uniqueFileName);
+//        profileImage.setEmail(registerRequest.getEmail());
+//        profileImage.setType(file.getContentType());
+//        profileImageRepository.save(profileImage);
 
         RegisterResponseDto response = new RegisterResponseDto();
         response.setStatusCode(200);
