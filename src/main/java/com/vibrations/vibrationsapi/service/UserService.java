@@ -56,7 +56,7 @@ public interface UserService {
 
     RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException;
 
-    Optional<User> findUserByEmail(String email);
+    // Optional<User> findUserByEmail(String email);
 
     ProfileImage findProfileByEmail(String email);
 
