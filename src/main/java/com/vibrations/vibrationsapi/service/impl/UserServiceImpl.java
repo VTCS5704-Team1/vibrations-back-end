@@ -306,6 +306,11 @@ public class UserServiceImpl implements UserService {
             // return downloadUserResponseDto;
     }
 
+    @Override
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
+
 
 
     private String getAccessToken(HttpServletRequest request) {

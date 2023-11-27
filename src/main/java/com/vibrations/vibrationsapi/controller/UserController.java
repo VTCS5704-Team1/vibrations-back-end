@@ -84,7 +84,11 @@ public class UserController {
     public ResponseEntity<?> register(@RequestParam("email") String email ) {
         DownloadUserRequestDto downloadUserRequestDto = new DownloadUserRequestDto(email);
         return ResponseEntity.ok(userService.getUser(downloadUserRequestDto));
+    }
 
+    @GetMapping(path="/all")
+    public ResponseEntity<?> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
 }
