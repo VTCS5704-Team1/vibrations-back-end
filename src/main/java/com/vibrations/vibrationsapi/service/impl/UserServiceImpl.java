@@ -35,6 +35,9 @@ public class UserServiceImpl implements UserService {
 
     @Value(value = "${aws.cognito.userPoolId}")
     private String userPoolId;
+
+    @Autowired
+    ProfileImageRepository profileImageRepository;
     @Override
     public SignUpResponseDto signUp(SignUpRequestDto signUpRequest) {
         SignUpResponseDto signUpResponse = new SignUpResponseDto();
@@ -230,8 +233,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Autowired
-    ProfileImageRepository profileImageRepository;
+
     @Autowired
     private S3Service s3Service;
     @Override
@@ -309,6 +311,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+    @Override
+    public  List<ProfileImage> getAllPfp(){
+        return  profileImageRepository.findAll();
     }
 
 

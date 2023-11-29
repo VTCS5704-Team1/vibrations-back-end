@@ -14,7 +14,9 @@ import com.vibrations.vibrationsapi.service.UserService;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -91,4 +93,21 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
+    @GetMapping(path="/allPfp")
+    public ResponseEntity<?> getAllPfp() {
+        List<ProfileImage> profileImages = userService.getAllPfp();
+        List<AllProfileImageDto> allImages = new ArrayList<>();;
+        for (ProfileImage profileImage : profileImages) {
+            DownloadImageRequestDto downloadRequest = new DownloadImageRequestDto();
+            downloadRequest.setFileName(profileImage.getName());
+            DownloadImageResponseDto imageResponseDto = s3Service.downloadFile(downloadRequest);
+            AllProfileImageDto allProfileImageDto = new AllProfileImageDto();
+            allProfileImageDto.setImageData(imageResponseDto.getImageData());
+            allProfileImageDto.setName(profileImage.getName());
+            allProfileImageDto.setEmail(profileImage.getEmail());
+            allImages.add(allProfileImageDto);
+            System.out.println(allProfileImageDto.getEmail());
+        }
+        return ResponseEntity.ok(allImages);
+    }
 }
