@@ -25,6 +25,8 @@ public class SecurityConfiguration {
                     CorsConfiguration config = new CorsConfiguration();
                     config.setAllowCredentials(true);
                     config.addAllowedOrigin("http://localhost:3000");
+                    config.addAllowedOrigin(
+                            "http://dev-vibrations-ui-final-env.eba-8gpticmp.us-east-2.elasticbeanstalk.com/");
                     config.addAllowedHeader("Authorization");
                     config.addAllowedHeader("Content-Type");
                     config.addAllowedMethod("GET");

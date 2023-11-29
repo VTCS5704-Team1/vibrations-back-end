@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added GetAll User">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" afterDir="false" />
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Removal of TEMP test endpoints">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701058327022</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Removal of TEMP test endpoints">
+      <option name="closed" value="true" />
+      <created>1701297623346</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1701297623346</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -352,7 +358,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created Security Configuration Classes" />
     <MESSAGE value="Created DTOs for SignUp" />
     <MESSAGE value="Misc Security Changes" />
     <MESSAGE value="Signin DTOs" />
@@ -377,7 +382,8 @@
     <MESSAGE value="User service fix" />
     <MESSAGE value="Added 404 catch" />
     <MESSAGE value="Fixed song typos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed song typos" />
+    <MESSAGE value="Removal of TEMP test endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removal of TEMP test endpoints" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
