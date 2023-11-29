@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface ProfileImageRepository extends JpaRepository<ProfileImage, Long> {
     Optional<ProfileImage> findByName(String name);
     ProfileImage findByEmail(String email);
+
+
 }

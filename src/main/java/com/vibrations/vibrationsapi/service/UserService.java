@@ -64,6 +64,8 @@ public interface UserService {
     DownloadUserResponseDto getUser(DownloadUserRequestDto downloadUserRequestDto);
 
     List<User> getAllUsers();
+
+    public  List<ProfileImage> getAllPfp();
 }
 
 
