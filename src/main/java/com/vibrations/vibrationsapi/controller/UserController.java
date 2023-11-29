@@ -53,12 +53,6 @@ public class UserController {
         return ResponseEntity.ok(userService.deleteUser(deleteAccountRequest));
     }
 
-    // Temp GET method for testing endpoints only accessible via Authentication
-    @GetMapping(path="/data")
-    public ResponseEntity<String> data() {
-        return ResponseEntity.ok("S'all Good, Man!");
-    }
-
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest request) {
         return ResponseEntity.ok(userService.signOut(request));
