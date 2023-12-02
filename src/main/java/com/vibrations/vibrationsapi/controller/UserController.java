@@ -87,6 +87,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
+    @GetMapping(path = "/match")
+    public ResponseEntity<?> match(@RequestParam String email) {
+        return ResponseEntity.ok(userService.getMatches(email));
+    }
+
     @GetMapping(path="/allPfp")
     public ResponseEntity<?> getAllPfp() {
         List<ProfileImage> profileImages = userService.getAllPfp();

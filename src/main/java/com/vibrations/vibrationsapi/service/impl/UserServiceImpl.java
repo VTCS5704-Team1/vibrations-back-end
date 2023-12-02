@@ -2,6 +2,10 @@ package com.vibrations.vibrationsapi.service.impl;
 
 import com.amazonaws.services.cognitoidp.AWSCognitoIdentityProvider;
 import com.amazonaws.services.cognitoidp.model.*;
+import com.amazonaws.services.lambda.AWSLambda;
+import com.amazonaws.services.lambda.model.InvokeRequest;
+import com.amazonaws.services.lambda.model.InvokeResult;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vibrations.vibrationsapi.dto.*;
 import com.vibrations.vibrationsapi.exception.ValidationException;
 import com.vibrations.vibrationsapi.model.ProfileImage;
@@ -37,7 +41,11 @@ public class UserServiceImpl implements UserService {
     private String userPoolId;
 
     @Autowired
-    ProfileImageRepository profileImageRepository;
+    private ProfileImageRepository profileImageRepository;
+
+    @Autowired
+    private AWSLambda lambda;
+
     @Override
     public SignUpResponseDto signUp(SignUpRequestDto signUpRequest) {
         SignUpResponseDto signUpResponse = new SignUpResponseDto();
@@ -309,6 +317,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public LambdaMatchmakingResponse getMatches(String email) {
+        InvokeRequest invokeRequest = new InvokeRequest()
+                .withFunctionName("arn:aws:lambda:us-east-2:982636731981:function:dev-vibrations-matchmaking-no-genres-16");
+        try {
+            // Run Lambda Matchmaker algorithm
+            InvokeResult invokeResult = lambda.invoke(invokeRequest);
+
+            // Convert payload into a readable string
+            String responseBody = new String(invokeResult.getPayload().array());
+
+            // Convert String to Map
+            ObjectMapper mapper = new ObjectMapper();
+            LambdaMatchmakingResponse response = mapper.readValue(responseBody, LambdaMatchmakingResponse.class);
+
+            // Filter out the matches to the provided email
+            Map<String, String[]> allMatches = response.getBody();
+            Map<String, String[]> currentMatches = new HashMap<>();
+            currentMatches.put(email, allMatches.get(email));
+            response.setBody(currentMatches);
+            return response;
+        } catch (Exception e) {
+            throw new ValidationException(e.getMessage());
+        }
+    }
+
+    @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -318,7 +352,6 @@ public class UserServiceImpl implements UserService {
     }
 
 
-
     private String getAccessToken(HttpServletRequest request) {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
@@ -326,10 +359,6 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
-
-    /* public Optional<User> findUserByEmail(String email) {
-        return Optional.ofNullable(userRepository.findByEmail(email));
-    } */
 
     public ProfileImage findProfileByEmail(String email){
         return  profileImageRepository.findByEmail(email);
