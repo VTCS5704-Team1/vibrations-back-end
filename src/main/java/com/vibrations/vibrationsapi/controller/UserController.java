@@ -87,6 +87,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
+    @GetMapping(path = "/match")
+    public ResponseEntity<?> match() {
+        return ResponseEntity.ok(userService.getMatches());
+    }
+
     @GetMapping(path="/allPfp")
     public ResponseEntity<?> getAllPfp() {
         List<ProfileImage> profileImages = userService.getAllPfp();

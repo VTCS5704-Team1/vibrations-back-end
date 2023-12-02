@@ -95,6 +95,12 @@
 			<version>1.12.595</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-lambda</artifactId>
+			<version>1.12.595</version>
+		</dependency>
+
 
 		<!-- Flyway -->
 		<dependency>
