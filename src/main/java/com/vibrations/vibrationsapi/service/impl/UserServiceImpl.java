@@ -317,7 +317,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public LambdaMatchmakingResponse getMatches() {
+    public LambdaMatchmakingResponse getMatches(String email) {
         InvokeRequest invokeRequest = new InvokeRequest()
                 .withFunctionName("arn:aws:lambda:us-east-2:982636731981:function:dev-vibrations-matchmaking-no-genres-16");
         try {
@@ -329,7 +329,14 @@ public class UserServiceImpl implements UserService {
 
             // Convert String to Map
             ObjectMapper mapper = new ObjectMapper();
-            return mapper.readValue(responseBody, LambdaMatchmakingResponse.class);
+            LambdaMatchmakingResponse response = mapper.readValue(responseBody, LambdaMatchmakingResponse.class);
+
+            // Filter out the matches to the provided email
+            Map<String, String[]> allMatches = response.getBody();
+            Map<String, String[]> currentMatches = new HashMap<>();
+            currentMatches.put(email, allMatches.get(email));
+            response.setBody(currentMatches);
+            return response;
         } catch (Exception e) {
             throw new ValidationException(e.getMessage());
         }

@@ -88,8 +88,8 @@ public class UserController {
     }
 
     @GetMapping(path = "/match")
-    public ResponseEntity<?> match() {
-        return ResponseEntity.ok(userService.getMatches());
+    public ResponseEntity<?> match(@RequestParam String email) {
+        return ResponseEntity.ok(userService.getMatches(email));
     }
 
     @GetMapping(path="/allPfp")

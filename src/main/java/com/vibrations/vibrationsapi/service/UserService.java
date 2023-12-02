@@ -72,7 +72,7 @@ public interface UserService {
      *
      * @return Matches for signed in user
      */
-    LambdaMatchmakingResponse getMatches();
+    LambdaMatchmakingResponse getMatches(String email);
 }
 
 
