@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added Lambda matchmaking functionality">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/HelloDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/HelloControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/ImageControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;matchmaking&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;unit-tests&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/davidclark/dev/projects/vibrations-back-end&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -411,11 +414,6 @@
           <properties class="java.lang.NoSuchMethodError" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="java-exception" />
