@@ -95,7 +95,7 @@ public class UserController {
     @GetMapping(path="/allPfp")
     public ResponseEntity<?> getAllPfp() {
         List<ProfileImage> profileImages = userService.getAllPfp();
-        List<AllProfileImageDto> allImages = new ArrayList<>();;
+        List<AllProfileImageDto> allImages = new ArrayList<>();
         for (ProfileImage profileImage : profileImages) {
             DownloadImageRequestDto downloadRequest = new DownloadImageRequestDto();
             downloadRequest.setFileName(profileImage.getName());
