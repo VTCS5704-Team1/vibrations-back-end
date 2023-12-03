@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added Lambda matchmaking functionality">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/dto/HelloDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/HelloControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/ImageControllerTest.java" afterDir="false" />
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Started Unit Testing">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/HelloControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/HelloControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +65,39 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserControllerTest.testRegister">
+    <configuration name="HelloControllerTest.testHelloPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vibrations-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.HelloControllerTest" />
+      <option name="METHOD_NAME" value="testHelloPost" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testRegister" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vibrations-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testRegister" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="vibrations-back-end" />
       <method v="2">
@@ -83,6 +111,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserControllerTest.testRegister" />
+        <item itemvalue="JUnit.HelloControllerTest.testHelloPost" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -365,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701536891662</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Started Unit Testing">
+      <option name="closed" value="true" />
+      <created>1701618530088</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1701618530088</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -380,7 +422,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Signin DTOs" />
     <MESSAGE value="Renamed 'exceptions' package to 'exception'" />
     <MESSAGE value="Added global exception handling controller" />
     <MESSAGE value="Updated security settings" />
@@ -405,7 +446,8 @@
     <MESSAGE value="Removal of TEMP test endpoints" />
     <MESSAGE value="Removed matches field from user objects" />
     <MESSAGE value="Added Lambda matchmaking functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Lambda matchmaking functionality" />
+    <MESSAGE value="Started Unit Testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started Unit Testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
