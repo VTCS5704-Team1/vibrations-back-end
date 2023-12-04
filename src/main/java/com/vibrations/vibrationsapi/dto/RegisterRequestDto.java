@@ -20,7 +20,6 @@ public class RegisterRequestDto {
     private String gender;
     private String[] topArtists;
     private String[] topSongs;
-    //new
     private Long phoneNumber;
     private double maxDistance;
     private double latitude;
