@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+/**
+ * JpaRepository for storing/retrieving Profile Images from database.
+ */
 @Repository
 public interface ProfileImageRepository extends JpaRepository<ProfileImage, Long> {
     Optional<ProfileImage> findByName(String name);

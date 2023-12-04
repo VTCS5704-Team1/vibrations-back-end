@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * REST API Controller for handling messages.
+ * Messaging is not implemented in the final project
+ */
 @RestController
 @RequestMapping("/api/messages")
 public class MessageController {

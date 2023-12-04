@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Profile Image Data model. Links to S3 database and User data model
+ */
 @Entity
 @Table(name = "profile_images", schema = "vibrations_backend")
 @Data

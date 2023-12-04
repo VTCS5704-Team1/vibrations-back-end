@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.Date;
 
+/**
+ * Controller for handling Errors in general
+ * Used primarily for Validation Exceptions
+ */
 @ControllerAdvice
 public class GlobalExceptionHandlerController {
     @ExceptionHandler(ValidationException.class)

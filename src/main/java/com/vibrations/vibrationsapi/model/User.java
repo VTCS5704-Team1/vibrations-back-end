@@ -7,7 +7,9 @@ import lombok.Data;
 
 import java.util.List;
 
-//@Data
+/**
+ * User data object. Used to store information for Vibrations users.
+ */
 @Entity
 @Data
 @Table(name = "users", schema = "vibrations_backend")
@@ -39,5 +41,9 @@ public class User {
     private double longitude;
     @Column(name = "gender")
     private String gender;
+
+    /* Note: private List<String> matches is in the database table, but is used solely for the matchmaking algorithm.
+       We don't want to save any matches right now, that's why it was removed here.
+     */
 
 }

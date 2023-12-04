@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * Message Data Model. Messages are unused in the final project
+ */
 @Entity
 @Data
 @Table(name = "messages", schema = "vibrations_backend")
