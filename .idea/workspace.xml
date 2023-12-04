@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Added Lambda matchmaking functionality">
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Continued unit testing for Controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +56,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;matchmaking&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;unit-tests&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/davidclark/dev/projects/vibrations-back-end&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
@@ -66,7 +64,87 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserControllerTest.testDeleteUser">
+    <configuration name="UserControllerTest.testDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vibrations-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testDeleteUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testGetAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vibrations-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testGetAllUsers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testMatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vibrations-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testMatch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testRegisterUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vibrations-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testRegisterUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testUserRegistration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vibrations-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testUserRegistration" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="vibrations-back-end" />
       <method v="2">
@@ -80,6 +158,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserControllerTest.testDeleteUser" />
+        <item itemvalue="JUnit.UserControllerTest.testMatch" />
+        <item itemvalue="JUnit.UserControllerTest.testGetAllUsers" />
+        <item itemvalue="JUnit.UserControllerTest.testUserRegistration" />
+        <item itemvalue="JUnit.UserControllerTest.testRegisterUser" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -362,7 +449,47 @@
       <option name="project" value="LOCAL" />
       <updated>1701536891662</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Started Unit Testing">
+      <option name="closed" value="true" />
+      <created>1701618530088</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1701618530088</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Began UserController Testing">
+      <option name="closed" value="true" />
+      <created>1701620984357</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1701620984357</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Removed old comments">
+      <option name="closed" value="true" />
+      <created>1701641267475</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1701641267475</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Fixed Typo">
+      <option name="closed" value="true" />
+      <created>1701643540792</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1701643540792</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Continued unit testing for Controller">
+      <option name="closed" value="true" />
+      <created>1701643555592</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1701643555592</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,11 +504,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Signin DTOs" />
-    <MESSAGE value="Renamed 'exceptions' package to 'exception'" />
-    <MESSAGE value="Added global exception handling controller" />
-    <MESSAGE value="Updated security settings" />
-    <MESSAGE value="Changed Cognito Userpool" />
     <MESSAGE value="Added Comments for UserService methods" />
     <MESSAGE value="Added Logout support" />
     <MESSAGE value="Deleted outdated class" />
@@ -402,7 +524,12 @@
     <MESSAGE value="Removal of TEMP test endpoints" />
     <MESSAGE value="Removed matches field from user objects" />
     <MESSAGE value="Added Lambda matchmaking functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Lambda matchmaking functionality" />
+    <MESSAGE value="Started Unit Testing" />
+    <MESSAGE value="Began UserController Testing" />
+    <MESSAGE value="Removed old comments" />
+    <MESSAGE value="Fixed Typo" />
+    <MESSAGE value="Continued unit testing for Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continued unit testing for Controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -411,11 +538,6 @@
           <properties class="java.lang.NoSuchMethodError" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint enabled="true" type="java-exception" />

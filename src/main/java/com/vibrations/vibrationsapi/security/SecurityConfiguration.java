@@ -34,7 +34,7 @@ public class SecurityConfiguration {
                     config.addAllowedMethod("OPTIONS");
                     return config;
                 })).csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests((authz) -> authz.requestMatchers("api/images/upload", "/api/users/signup", "/api/users/register","/api/users/login", "hello")
+                .authorizeHttpRequests((authz) -> authz.requestMatchers("api/images/upload", "/api/users/signup", "/api/users/register","/api/users/login", "/hello", "/hello/friend")
                         .permitAll().anyRequest().authenticated())
                 .sessionManagement((sessionManagement) -> {
                     sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS);

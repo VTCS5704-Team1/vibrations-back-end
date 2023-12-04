@@ -259,15 +259,8 @@ public class UserServiceImpl implements UserService {
         user.setLongitude(registerRequest.getLongitude());
         user.setMaxDistance(registerRequest.getMaxDistance());
         user.setPhoneNumber(registerRequest.getPhoneNumber());
-//        String uniqueFileName = LocalDateTime.now() + "_" + file.getName();
-        userRepository.save(user);
-        //s3Service.uploadFile(file , uniqueFileName);
 
-//        ProfileImage profileImage = new ProfileImage();
-//        profileImage.setName(uniqueFileName);
-//        profileImage.setEmail(registerRequest.getEmail());
-//        profileImage.setType(file.getContentType());
-//        profileImageRepository.save(profileImage);
+        userRepository.save(user);
 
         RegisterResponseDto response = new RegisterResponseDto();
         response.setStatusCode(200);
