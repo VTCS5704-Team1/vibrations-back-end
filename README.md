@@ -82,6 +82,7 @@ Project for CS5707 - Software Engineering (Fall 2023)
 * This already deployed here: TBD
 * Need to include more restrictive Security configurations
   * API should be made inaccessible to all outside traffic (only accessible to the frontend)
+* The current deployment script works, but it will say that it fails. It requires some tweaking in the cloud. Please do not run it.
 
 ### Spring-Boot Application
 * Project: Maven
