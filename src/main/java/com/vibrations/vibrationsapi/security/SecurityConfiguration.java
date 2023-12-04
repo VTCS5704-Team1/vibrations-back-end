@@ -28,7 +28,7 @@ public class SecurityConfiguration {
                     config.setAllowCredentials(true);
                     config.addAllowedOrigin("http://localhost:3000"); // Local development
                     config.addAllowedOrigin(
-                            "http://dev-vibrations-ui-final-env.eba-8gpticmp.us-east-2.elasticbeanstalk.com/"); // Cloud development host
+                            "http://dev-vib-ui-final-eb-env.eba-xvyd3ppt.us-east-2.elasticbeanstalk.com/"); // Cloud development host
                     config.addAllowedHeader("Authorization");
                     config.addAllowedHeader("Content-Type");
                     config.addAllowedMethod("GET");
