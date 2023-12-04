@@ -3,7 +3,7 @@ Project for CS5707 - Software Engineering (Fall 2023)
 
 ## Instructions for Grader:
 * The frontend UI here: https://github.com/VTCS5704-Team1/vibrations-front-end uses this backend for functionality
-* If testing backend WITHOUT frontend, use the Postman (https://www.postman.com/)
+* If testing backend WITHOUT frontend, use Postman (https://www.postman.com/)
 * The user controllers specify endpoint functionality
 * Right now, there is a bug with AWS Elastic Beanstalk where redeployment fails. Do not run the deployment script
 * All endpoints require a Bearer Token except:
@@ -79,7 +79,7 @@ Project for CS5707 - Software Engineering (Fall 2023)
 
 
 ## Deployment Plans:
-* This already deployed here: TBD
+* This is already deployed here: (http://dev-vibrations-api-final-env.eba-wpisspwu.us-east-2.elasticbeanstalk.com/hello)
 * Need to include more restrictive Security configurations
   * API should be made inaccessible to all outside traffic (only accessible to the frontend)
 * The current deployment script works, but it will say that it fails. It requires some tweaking in the cloud. Please do not run it.
