@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Removed old comments">
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Continued unit testing for Controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/vibrations/vibrationsapi/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,24 +64,8 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.UserControllerTest.testRegisterUser">
-    <configuration name="HelloControllerTest.testHelloPost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="vibrations-api" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
-      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.HelloControllerTest" />
-      <option name="METHOD_NAME" value="testHelloPost" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserControllerTest.testChangePassword" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UserControllerTest.testDeleteUser">
+    <configuration name="UserControllerTest.testDeleteUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="vibrations-api" />
       <extension name="coverage">
         <pattern>
@@ -92,13 +75,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
       <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
-      <option name="METHOD_NAME" value="testChangePassword" />
+      <option name="METHOD_NAME" value="testDeleteUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.testLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testGetAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="vibrations-api" />
       <extension name="coverage">
         <pattern>
@@ -108,13 +91,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
       <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
-      <option name="METHOD_NAME" value="testLogin" />
+      <option name="METHOD_NAME" value="testGetAllUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.testLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testMatch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="vibrations-api" />
       <extension name="coverage">
         <pattern>
@@ -124,7 +107,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
       <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
-      <option name="METHOD_NAME" value="testLogout" />
+      <option name="METHOD_NAME" value="testMatch" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -146,6 +129,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserControllerTest.testUserRegistration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="vibrations-api" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vibrations.vibrationsapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.vibrations.vibrationsapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.vibrations.vibrationsapi.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testUserRegistration" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="vibrations-back-end" />
       <method v="2">
@@ -161,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest.testDeleteUser" />
+        <item itemvalue="JUnit.UserControllerTest.testMatch" />
+        <item itemvalue="JUnit.UserControllerTest.testGetAllUsers" />
+        <item itemvalue="JUnit.UserControllerTest.testUserRegistration" />
         <item itemvalue="JUnit.UserControllerTest.testRegisterUser" />
-        <item itemvalue="JUnit.UserControllerTest.testLogout" />
-        <item itemvalue="JUnit.UserControllerTest.testChangePassword" />
-        <item itemvalue="JUnit.UserControllerTest.testLogin" />
-        <item itemvalue="JUnit.HelloControllerTest.testHelloPost" />
       </list>
     </recent_temporary>
   </component>
@@ -474,7 +473,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701641267475</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Fixed Typo">
+      <option name="closed" value="true" />
+      <created>1701643540792</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1701643540792</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Continued unit testing for Controller">
+      <option name="closed" value="true" />
+      <created>1701643555592</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1701643555592</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -489,8 +504,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Updated security settings" />
-    <MESSAGE value="Changed Cognito Userpool" />
     <MESSAGE value="Added Comments for UserService methods" />
     <MESSAGE value="Added Logout support" />
     <MESSAGE value="Deleted outdated class" />
@@ -514,7 +527,9 @@
     <MESSAGE value="Started Unit Testing" />
     <MESSAGE value="Began UserController Testing" />
     <MESSAGE value="Removed old comments" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed old comments" />
+    <MESSAGE value="Fixed Typo" />
+    <MESSAGE value="Continued unit testing for Controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Continued unit testing for Controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

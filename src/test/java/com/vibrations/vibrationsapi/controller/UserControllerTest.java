@@ -16,9 +16,7 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-import java.net.http.HttpHeaders;
-
-import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -46,7 +44,7 @@ public class UserControllerTest {
      * This test will register a user account to Cognito,
      * which will be used by the other tests (delete will run last)
      */
-    /**@Test
+    @Test
     @Order(1)
     void testRegister() throws Exception {
         // Create fake request data
@@ -73,7 +71,7 @@ public class UserControllerTest {
         this.mockMvc.perform(request).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string("{\"statusCode\":" + responseDto.getStatusCode() +
                         ",\"statusMessage\":\"" + responseDto.getStatusMessage() + "\"}"));
-    } */
+    }
 
     /**
      * Unit test for testing logging in via Cognito
@@ -160,54 +158,61 @@ public class UserControllerTest {
     }
 
     /**
-     * Tests creating a new User and adding it to the database.
+     * Tests the getALl Users endpoint
+     * Only will check for status 200 in this case (since the users are variable)
      */
     @Test
     @Order(5)
-    void testRegisterUser() throws Exception {
+    void testGetAllUsers() throws Exception {
         String accessToken = "Bearer " + generateAccessToken();
 
-        RegisterRequestDto requestDto = new RegisterRequestDto();
-        requestDto.setFirstName("Unit");
-        requestDto.setLastName("Test");
-        requestDto.setEmail(email);
-        requestDto.setBio("I am a unit test.");
-        requestDto.setGender("Male");
-        requestDto.setTopArtists(new String[]{"The Rolling Stones", "ZZ Top", "\"Weird Al\" Yankovic"});
-        requestDto.setTopSongs(new String[]{"Dead Flowers", "La Grange", "Eat It"});
-        requestDto.setPhoneNumber(1234567890L);
-        requestDto.setMaxDistance(10.0);
-        requestDto.setLatitude(0.0);
-        requestDto.setLongitude(0.0);
-        String jsonContent = new ObjectMapper().writeValueAsString(requestDto);
+        this.mockMvc.perform(get(baseUrl + "/all")
+                .header("Authorization", accessToken)
+        ).andDo(print()).andExpect(status().isOk());
+    }
 
-        RegisterResponseDto responseDto = new RegisterResponseDto();
-        responseDto.setStatusCode(200);
-        responseDto.setStatusMessage("User registered successfully");
+    /**
+     * Tests matchmaking algorithm call. It only checks status since matches are variable.
+     */
+    @Test
+    @Order(6)
+    void testMatch() throws Exception {
+        String accessToken = "Bearer " + generateAccessToken();
 
-        RequestBuilder request = MockMvcRequestBuilders.post(baseUrl + "/registerUser")
+        this.mockMvc.perform(get(baseUrl + "/match")
+                .header("Authorization", accessToken)
+                .param("email", email))
+                .andDo(print()).andExpect(status().isOk());
+    }
+
+
+    /**
+     * Tests deleting a User in cognito.
+     * Only checks status because it returns AWS Json.
+     * This should ALWAYS be the last test run
+     */
+    @Test
+    @Order(7)
+    void testDeleteUser() throws Exception {
+        String accessToken = "Bearer " + generateAccessToken();
+        DeleteAccountDto deleteDto = new DeleteAccountDto();
+        deleteDto.setEmail(email);
+        deleteDto.setPassword(password);
+
+        String jsonContent = new ObjectMapper().writeValueAsString(deleteDto);
+
+        RequestBuilder request = MockMvcRequestBuilders.post(baseUrl + "/delete")
                 .contentType("application/json")
                 .accept("application/json")
                 .header("Authorization", accessToken)
                 .content(jsonContent);
-        this.mockMvc.perform(request).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string("{\"statusCode\":" + responseDto.getStatusCode() +
-                        ",\"statusMessage\":\"" + responseDto.getStatusMessage() + "\"}"));
+
+        this.mockMvc.perform(request).andDo(print()).andExpect(status().isOk());
+
+        // Ensure that this was deleted
+        this.mockMvc.perform(request).andDo(print()).andExpect(status().is4xxClientError());
+
     }
-
-    /**
-     * Test method for getting a user. In this case, will use my own
-     * use, since the current test user is not saved to the database.
-     */
-    @Test
-    @Order(6)
-    void testGetUser() throws Exception {
-        String accessToken = "Bearer " + generateAccessToken();
-
-        
-    }
-
-
 
     /**
      * Helper function for generating an access token for endpoints that require them.
