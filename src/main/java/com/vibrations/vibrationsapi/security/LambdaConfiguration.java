@@ -8,6 +8,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * AWS Lambda settings configuration. Used for calling the matchmaking algorithm
+ * stored in Lambda.
+ */
 @Configuration
 public class LambdaConfiguration {
 

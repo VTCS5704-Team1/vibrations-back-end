@@ -1,9 +1,7 @@
 package com.vibrations.vibrationsapi.service.impl;
 
-import com.vibrations.vibrationsapi.dto.RegisterResponseDto;
 import com.vibrations.vibrationsapi.dto.SendMessageResponseDto;
 import com.vibrations.vibrationsapi.model.Message;
-import com.vibrations.vibrationsapi.model.User;
 import com.vibrations.vibrationsapi.repository.MessageRepository;
 import com.vibrations.vibrationsapi.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;

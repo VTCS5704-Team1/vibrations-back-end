@@ -85,6 +85,11 @@ public class S3ServiceImpl implements S3Service {
         }
     }
 
+    /**
+     * Helper function that converts a Java MP file to a regular File
+     * @param mpFile -- MPfile supplied by request
+     * @return -- Regular Java File
+     */
     private File convertMultipartFileToFile(final MultipartFile mpFile) {
         final File file =  new File(mpFile.getOriginalFilename());
         try (final FileOutputStream stream = new FileOutputStream(file)) {

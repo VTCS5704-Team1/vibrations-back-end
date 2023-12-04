@@ -7,13 +7,13 @@ import com.vibrations.vibrationsapi.dto.*;
 import com.vibrations.vibrationsapi.model.ProfileImage;
 import com.vibrations.vibrationsapi.model.User;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
+/**
+ * Service functions for User model
+ */
 public interface UserService {
     /**
      * Method for registering an account using AWS Cognito
@@ -55,16 +55,31 @@ public interface UserService {
      */
     AdminDeleteUserResult deleteUser(DeleteAccountDto deleteUserRequest);
 
+    /**
+     * Registers a user into the database
+     * @param registerRequest -- User information
+     * @return Confirmation JSON
+     * @throws IOException -- Excetion
+     */
     RegisterResponseDto register(RegisterRequestDto registerRequest) throws IOException;
 
-    // Optional<User> findUserByEmail(String email);
-
-    ProfileImage findProfileByEmail(String email);
-
+    /**
+     * Gets a specific user
+     * @param downloadUserRequestDto -- User email
+     * @return -- User information JSON
+     */
     DownloadUserResponseDto getUser(DownloadUserRequestDto downloadUserRequestDto);
 
+    /**
+     * Returns a list of all Users in the database
+     * @return All users in the database
+     */
     List<User> getAllUsers();
 
+    /**
+     * Returns of list of all PFPs in the database
+     * @return All PFps in the database
+     */
     public  List<ProfileImage> getAllPfp();
 
     /**

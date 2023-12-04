@@ -13,15 +13,13 @@ import com.vibrations.vibrationsapi.repository.ProfileImageRepository;
 import com.vibrations.vibrationsapi.service.S3Service;
 import com.vibrations.vibrationsapi.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.vibrations.vibrationsapi.repository.UserRepository;
 import com.vibrations.vibrationsapi.model.User;
-import org.springframework.web.multipart.MultipartFile;
-import java.time.LocalDateTime;
+
 import java.io.IOException;
 import java.util.*;
 
@@ -345,6 +343,11 @@ public class UserServiceImpl implements UserService {
     }
 
 
+    /**
+     * Helper function used to retrieve an Authorization token from a request header
+     * @param request -- Request
+     * @return -- Request's authorization token (filtered out 'Bearer ')
+     */
     private String getAccessToken(HttpServletRequest request) {
         String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
@@ -353,7 +356,12 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-    public ProfileImage findProfileByEmail(String email){
+    /**
+     * Helper function used to retrieve the profile picture of a user
+     * @param email -- Used to identify the user
+     * @return profile image data object for the identified user
+     */
+    private ProfileImage findProfileByEmail(String email){
         return  profileImageRepository.findByEmail(email);
     }
 

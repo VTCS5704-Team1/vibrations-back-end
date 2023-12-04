@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Repository for storing/retrieving messages in database.
+ * Messaging is an unused feature.
+ */
 @Repository
 public interface MessageRepository extends JpaRepository<Message, Long> {
     public List<Message> findBySenderEmail(String senderEmail);
