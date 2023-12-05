@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Updated README (minor fixes)">
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Changed front-end allowed origin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/vibrations/vibrationsapi/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +56,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "new-deploy",
+    "git-widget-placeholder": "readme-test",
     "last_opened_file_path": "/Users/davidclark/dev/projects/vibrations-back-end",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -505,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701710714115</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Changed front-end allowed origin">
+      <option name="closed" value="true" />
+      <created>1701715248293</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1701715248293</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -520,7 +528,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Deleted outdated class" />
     <MESSAGE value="Added new feature: can change passwords in Cognito" />
     <MESSAGE value="Added password validation to change password" />
     <MESSAGE value="Modified CORs settings" />
@@ -545,7 +552,8 @@
     <MESSAGE value="Continued unit testing for Controller" />
     <MESSAGE value="Added Code Comments" />
     <MESSAGE value="Deleted Bad Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted Bad Test" />
+    <MESSAGE value="Changed front-end allowed origin" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed front-end allowed origin" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
