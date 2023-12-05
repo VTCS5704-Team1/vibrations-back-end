@@ -77,12 +77,31 @@ Project for CS5707 - Software Engineering (Fall 2023)
   * getUser requires the test user to have a PFP, which can't be uploaded
 * All other endpoints are tested in the test suite
 
+## Acceptance Testing:
+* At the moment, the backend can handle the following use cases:
+  * Creating an account -- Shown above with the Instructions for Matching
+    * At the moment, there is no MFA: email validation nor phone number validation
+      * Phone validation required Toll-Free Number registration in AWS, which would fall out of scope
+      * Email validation: we just ran out of time
+    * There is no account activation/deactivation.
+      * Though, there is the ability to delete an account
+    * The User does not need a Spotify account. They can either connect their account or just use the SpotifyAPI to select music
+  * Generating Matches -- Also shown above
+    * Only differences from the Use Case are some of the UI decisions and the fact that the matchmaking algorithm does not incorporate Genre
+    * Two reasons why genre was removed from algorithm:
+      * SpotifyAPI does not have any endpoints relating to genres
+      * Genres can be very specific, which can potentially affect matches.
+  * Third use case: Contacting the matched users is entirely unimplemented
+    * There are messaging endpoints implemented in the backend and the database
+    * However: there is no way connect users to make those endpoints accessible.
+    * We ran out of time.
+
 
 ## Deployment Plans:
 * This is already deployed here: (http://dev-vibrations-api-final-env.eba-wpisspwu.us-east-2.elasticbeanstalk.com/hello)
 * Need to include more restrictive Security configurations
   * API should be made inaccessible to all outside traffic (only accessible to the frontend)
-* The current deployment script works, but it will say that it fails. It requires some tweaking in the cloud. Please do not run it.
+* The current deployment script works, but it will say that it fails. It requires some extra steps for deployment in AWS
 
 ### Spring-Boot Application
 * Project: Maven
