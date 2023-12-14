@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Changed front-end allowed origin">
+    <list default="true" id="ce392bd1-f944-4915-a3f9-e332c1dec9df" name="Changes" comment="Fixed file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -56,8 +56,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "readme-test",
-    "last_opened_file_path": "/Users/davidclark/dev/projects/vibrations-back-end",
+    "git-widget-placeholder": "cloud-shutdown",
+    "last_opened_file_path": "/Users/davidclark/Documents/Graduate Work Archive/Fall '23 Work/dev/vibrations-back-end",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
@@ -147,13 +147,6 @@
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="vibrations-back-end" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="vibrations-back-end" />
-      <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
