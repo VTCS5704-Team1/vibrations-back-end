@@ -1,6 +1,14 @@
 # vibrations-back-end
 Project for CS5707 - Software Engineering (Fall 2023)
 
+## 12/14/23
+* The AWS Cloud Account has been shut down.
+* This means that the following SaaS services have been lost:
+  * Image Hosting (S3)
+  * Authentication/Logging in (Cognito)
+  * User information/storage (Cognito/RDS SQL Database)
+* Thank you!
+
 ## Instructions for Grader:
 * The frontend UI here: https://github.com/VTCS5704-Team1/vibrations-front-end uses this backend for functionality
 * If testing backend WITHOUT frontend, use Postman (https://www.postman.com/)
